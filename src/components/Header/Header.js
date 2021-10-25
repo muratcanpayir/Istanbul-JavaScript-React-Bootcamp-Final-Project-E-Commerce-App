@@ -6,7 +6,7 @@ function Header() {
   return (
     <header>
       <nav>
-        <p>E-Ticaret Sitesi</p>
+        <p className="header-title">E-Ticaret Sitesi</p>
         <div className="menu">
           <Link to="/tshirts">T-Shirt</Link>
           <Link to="/hats">Hat</Link>

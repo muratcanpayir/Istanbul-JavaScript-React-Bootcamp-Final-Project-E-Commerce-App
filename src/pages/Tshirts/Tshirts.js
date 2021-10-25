@@ -23,7 +23,6 @@ function Products() {
           <div
             className="product-card"
             onClick={() => {
-              dispatch(getTshirtDetail(tshirt.id));
               history.push("tshirt-details/"+tshirt.id);
             }}
             key={tshirt.id}
