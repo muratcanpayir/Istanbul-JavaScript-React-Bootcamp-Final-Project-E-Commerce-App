@@ -1,0 +1,3 @@
+export const GET_HATS_PENDING = "GET_HATS_PENDING";
+export const GET_HATS_SUCCESS = "GET_HATS_SUCCESS";
+export const GET_HATS_ERROR = "GET_HATS_ERROR";
