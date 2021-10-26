@@ -13,6 +13,6 @@ export const getTshirtDetail = (id) => (dispatch) => {
       dispatch({ type: GET_TSHIRT_DETAIL_SUCCESS, payload: response.data });
     })
     .catch((error) => {
-      dispatch({ type: GET_TSHIRT_DETAIL_ERROR, payload: error });
+      dispatch({ type: GET_TSHIRT_DETAIL_ERROR, payload: error.response.data });
     });
 };

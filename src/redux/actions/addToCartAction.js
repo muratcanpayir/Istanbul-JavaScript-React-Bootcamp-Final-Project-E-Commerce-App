@@ -13,6 +13,6 @@ export const postAddToCart = (data) => (dispatch) => {
       dispatch({ type: POST_ADD_TO_CART_SUCCESS, payload: response.data });
     })
     .catch((error) => {
-      dispatch({ type: POST_ADD_TO_CART_ERROR, payload: error });
+      dispatch({ type: POST_ADD_TO_CART_ERROR, payload: error.response.data });
     });
 };

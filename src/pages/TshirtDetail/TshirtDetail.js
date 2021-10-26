@@ -1,25 +1,26 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
 import REQUEST_STATUS from "../../helpers/constants";
 import { getTshirtDetail } from "../../redux/actions/tshirtDetailAction";
-import {postAddToCart} from "../../redux/actions/addToCartAction";
+import { postAddToCart } from "../../redux/actions/addToCartAction";
 import "./TshirtDetail.scss";
 
 function TshirtDetail() {
   const { id } = useParams();
-  const dispatch=useDispatch();
-  useEffect(()=>{
+  const dispatch = useDispatch();
+  useEffect(() => {
     dispatch(getTshirtDetail(id));
-  },[])
+  }, []);
+  
   const tshirtDetails = useSelector((state) => state.tshirtDetail);
-  const addToCart=useSelector((state)=>state.addToCart);
-useEffect(()=>{
-  if(addToCart.status===REQUEST_STATUS.SUCCESS){
-    window.location.href="/cart";
-  }
-},[addToCart])
+  const addToCart = useSelector((state) => state.addToCart);
+  useEffect(()=>{
+    if(addToCart.status===REQUEST_STATUS.SUCCESS){
+      window.location.href="/cart";
+    }
+  },[addToCart])
   return (
     <div className="tshirt-detail-wrapper">
       {
@@ -49,9 +50,13 @@ useEffect(()=>{
                   {tshirtDetails.data.price}
                 </div>
               </div>
-              <button onClick={()=>{
-                dispatch(postAddToCart(tshirtDetails.data));
-              }}>Add To Cart!</button>
+              <button
+                onClick={() => {
+                  dispatch(postAddToCart(tshirtDetails.data));
+                }}
+              >
+                Add To Cart!
+              </button>
             </div>
           )}
         </>
