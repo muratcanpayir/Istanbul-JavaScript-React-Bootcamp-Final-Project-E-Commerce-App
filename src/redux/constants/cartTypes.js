@@ -1,2 +1,3 @@
-export const ADD_TO_CART = "ADD_TO_CART";
-export const DELETE_FROM_CART = "DELETE_FROM_CART";
+export const GET_CART_PENDING = "GET_CART_PENDING";
+export const GET_CART_SUCCESS = "GET_CART_SUCCESS";
+export const GET_CART_ERROR = "GET_CART_ERROR";

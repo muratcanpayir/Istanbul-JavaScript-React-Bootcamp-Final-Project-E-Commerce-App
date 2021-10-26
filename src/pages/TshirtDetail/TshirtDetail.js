@@ -4,6 +4,7 @@ import { useSelector } from "react-redux";
 import { useParams } from "react-router";
 import REQUEST_STATUS from "../../helpers/constants";
 import { getTshirtDetail } from "../../redux/actions/tshirtDetailAction";
+import {postAddToCart} from "../../redux/actions/addToCartAction";
 import "./TshirtDetail.scss";
 
 function TshirtDetail() {
@@ -13,8 +14,12 @@ function TshirtDetail() {
     dispatch(getTshirtDetail(id));
   },[])
   const tshirtDetails = useSelector((state) => state.tshirtDetail);
-  console.log(tshirtDetails.data);
-
+  const addToCart=useSelector((state)=>state.addToCart);
+useEffect(()=>{
+  if(addToCart.status===REQUEST_STATUS.SUCCESS){
+    window.location.href="/cart";
+  }
+},[addToCart])
   return (
     <div className="tshirt-detail-wrapper">
       {
@@ -44,6 +49,9 @@ function TshirtDetail() {
                   {tshirtDetails.data.price}
                 </div>
               </div>
+              <button onClick={()=>{
+                dispatch(postAddToCart(tshirtDetails.data));
+              }}>Add To Cart!</button>
             </div>
           )}
         </>
