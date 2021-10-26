@@ -11,6 +11,7 @@ import Tshirts from "../pages/Tshirts/Tshirts";
 import Login from "../pages/Login/Login";
 import TshirtDetail from "../pages/TshirtDetail/TshirtDetail";
 import HatDetail from "../pages/HatDetail/HatDetail";
+import Cart from "../pages/Cart/Cart";
 
 function Routes() {
   return (
@@ -35,6 +36,9 @@ function Routes() {
         </Route>
         <Route path="/hat-details/:id">
           <HatDetail />
+        </Route>
+        <Route path="/cart">
+          <Cart />
         </Route>
       </Switch>
     </Router>
