@@ -1,4 +1,4 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
 import "./Header.scss";
@@ -10,6 +10,7 @@ import { getCart } from "../../redux/actions/cartAction";
 
 function Header() {
   const addToCart=useSelector(state=>state.addToCart)
+  const [email,setEmail]=useState("");
   const { totalPrice,setTotalPrice } = useCart();
   const dispatch=useDispatch()
   useEffect(()=>{
@@ -27,12 +28,23 @@ function Header() {
       });
     }
   }, [cart]);
+  useEffect(()=>{
+    setEmail(localStorage.getItem("email")); 
+  },[])
+  const logout=()=>{
+    localStorage.removeItem("access_token");
+    localStorage.removeItem("email");
+    window.location.href="/";
+  }
   
   console.log(cart);
   
   const history = useHistory();
   return (
     <header>
+      <div className="user">{email}
+      <button onClick={logout}>logout</button>
+      </div>
       <nav>
         <p
           onClick={() => {
