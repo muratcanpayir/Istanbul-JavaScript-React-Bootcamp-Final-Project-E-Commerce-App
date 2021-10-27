@@ -1,10 +1,15 @@
 @import "../../style/variables.scss";
 .cart-container {
-  background-color: $bg-color-light;
   min-height: 100vh;
   height: 100%;
   width: 100%;
   display: flex;
+}
+.cart-container-light {
+  background-color: $bg-color-light;
+}
+.cart-container-dark {
+  background-color: $bg-color-dark;
 }
 .cart-wrapper {
   margin: 20px 220px;
@@ -14,10 +19,16 @@
   display: flex;
   align-items: center;
   margin-bottom: 20px;
-  border: 1px solid $light-box-shadow;
   border-radius: 8px;
   padding: 8px 24px 8px 8px;
+}
+.cart-items-light {
+  border: 1px solid $light-box-shadow;
   box-shadow: 5px 5px 5px rgb(214, 214, 214);
+}
+.cart-items-dark {
+  border: 1px solid #4d4d4d;
+  box-shadow: 5px 5px 5px rgb(20, 20, 20);
 }
 .cart-image {
   max-height: 100px;
@@ -35,10 +46,19 @@
 }
 .cart-title {
   p {
-    color: $text-color-1;
     font-size: 20px;
     font-weight: 700;
     margin-bottom: 36px;
+  }
+}
+.cart-title-light {
+  p {
+    color: $text-color-1;
+  }
+}
+.cart-title-dark {
+  p {
+    color: white;
   }
 }
 .cart-price {
@@ -57,14 +77,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  button {
-    color: red;
-    width: 40px;
-    height: 40px;
-    border: none;
-    cursor: pointer;
-    background: none;
-  }
+}
+.delete-from-cart-button {
+  color: #f77474;
+  width: 40px;
+  height: 40px;
+  border: none;
+  cursor: pointer;
+  background: none;
 }
 .cart-subtotal {
   p {
@@ -76,7 +96,7 @@
     width: 200px;
     float: right;
     background-color: $blue;
-    span{
+    span {
       font-weight: 400;
       font-size: 20px;
     }
