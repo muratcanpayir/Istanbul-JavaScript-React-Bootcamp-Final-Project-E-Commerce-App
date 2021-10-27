@@ -3,9 +3,12 @@
   background-color: $bg-color-light;
   min-height: 100vh;
   height: 100%;
+  width: 100%;
+  display: flex;
 }
 .cart-wrapper {
-  margin: 0 220px;
+  margin: 20px 220px;
+  width: 100%;
 }
 .cart-items {
   display: flex;
@@ -13,7 +16,8 @@
   margin-bottom: 20px;
   border: 1px solid $light-box-shadow;
   border-radius: 8px;
-  padding: 8px 40px;
+  padding: 8px 24px 8px 8px;
+  box-shadow: 5px 5px 5px rgb(214, 214, 214);
 }
 .cart-image {
   max-height: 100px;
