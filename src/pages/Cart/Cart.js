@@ -14,7 +14,7 @@ import useTheme from "../../hooks/useTheme";
 
 function Cart() {
   const { totalPrice, setTotalPrice } = useCart();
-  const {theme}=useTheme();
+  const { theme } = useTheme();
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
 
@@ -44,17 +44,31 @@ function Cart() {
       <Header />
       {cart.status === REQUEST_STATUS.PENDING && <div>Loading....</div>}
       {cart.status === REQUEST_STATUS.SUCCESS && (
-        <div className={`cart-container ${theme==="light"?"cart-container-light":"cart-container-dark"}`}>
+        <div
+          className={`cart-container ${
+            theme === "light" ? "cart-container-light" : "cart-container-dark"
+          }`}
+        >
           <div className="cart-wrapper">
             {cart.data.map((item) => (
-              <div className={`cart-items ${theme==="light"?"cart-items-light":"cart-items-dark"}`}
-               key={item.id}>
+              <div
+                className={`cart-items ${
+                  theme === "light" ? "cart-items-light" : "cart-items-dark"
+                }`}
+                key={item.id}
+              >
                 <div className="cart-image">
                   <img src={item.imageUrl} alt={item.title} />
                 </div>
                 <div className="cart-items-right-side">
                   <div className="cart-items-info">
-                    <div className={`cart-title ${theme==="light"?"cart-title-light":"cart-title-dark"}`}>
+                    <div
+                      className={`cart-title ${
+                        theme === "light"
+                          ? "cart-title-light"
+                          : "cart-title-dark"
+                      }`}
+                    >
                       <p>{item.title}</p>
                     </div>
                     <div className="cart-price">
@@ -62,8 +76,13 @@ function Cart() {
                     </div>
                   </div>
                   <button
-                  className={`delete-from-cart-button ${theme==="light"?"delete-from-cart-button-light":"delete-from-cart-button-dark"}`} 
-                  onClick={() => deleteProductFromCart(item.id)}>
+                    className={`delete-from-cart-button ${
+                      theme === "light"
+                        ? "delete-from-cart-button-light"
+                        : "delete-from-cart-button-dark"
+                    }`}
+                    onClick={() => deleteProductFromCart(item.id)}
+                  >
                     <RiDeleteBinLine size={"24px"} />
                   </button>
                 </div>

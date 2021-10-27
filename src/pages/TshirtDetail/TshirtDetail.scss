@@ -19,11 +19,11 @@
   max-height: 484px;
   width: 100%;
 }
-.tshirt-detail-light{
+.tshirt-detail-light {
   border: 1px solid $light-box-shadow;
   box-shadow: 5px 5px 5px rgb(214, 214, 214);
 }
-.tshirt-detail-dark{
+.tshirt-detail-dark {
   border: 1px solid #4d4d4d;
   box-shadow: 5px 5px 5px rgb(20, 20, 20);
 }
@@ -41,10 +41,10 @@
   flex-direction: column;
   justify-content: flex-start;
 }
-.tshirt-detail-info-light{
+.tshirt-detail-info-light {
   color: $text-color-1;
 }
-.tshirt-detail-info-dark{
+.tshirt-detail-info-dark {
   color: white;
 }
 .tshirt-detail-title {

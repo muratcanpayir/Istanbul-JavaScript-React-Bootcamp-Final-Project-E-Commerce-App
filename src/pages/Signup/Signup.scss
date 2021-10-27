@@ -5,7 +5,12 @@
   align-items: center;
   height: 100vh;
   padding: 0 220px;
+}
+.signup-container-light {
   background-color: $bg-color-light;
+}
+.signup-container-dark {
+  background-color: $bg-color-dark;
 }
 .form-container {
   height: 600px;
@@ -13,8 +18,6 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  background-color: #fff;
-  box-shadow: 0 5px 10px $light-box-shadow;
   padding: 40px 100px;
   form {
     width: 100%;
@@ -25,22 +28,41 @@
     align-items: center;
   }
 }
+.form-container-light {
+  background-color: #fff;
+  box-shadow: 0 5px 10px $light-box-shadow;
+}
+.form-container-dark {
+  background-color: #1b1b1b;
+  box-shadow: 5px 5px 5px rgb(20, 20, 20);
+}
 .signup-title {
   font-size: 32px;
   font-weight: 700;
   text-align: center;
   margin-bottom: 20px;
+}
+.signup-title-light {
   color: $text-color-1;
+}
+.signup-title-dark {
+  color: $white;
 }
 .signup-go-login {
   font-size: 14px;
   font-weight: 400px;
   margin-bottom: 24px;
-  span{
+  span {
     font-size: 14px;
     cursor: pointer;
     color: $blue;
   }
+}
+.signup-go-login-light {
+  color: black;
+}
+.signup-go-login-dark {
+  color: white;
 }
 .input-light {
   width: 400px;
@@ -50,14 +72,25 @@
   margin-bottom: 16px;
   padding: 0 16px;
   font-size: 16px;
+  &:focus {
+    outline: 1px solid $blue;
+  }
+  &::placeholder {
+    color: $light-placeholder-color;
+  }
+}
+.input-light-light {
   background-color: $input-color-light;
   color: $text-color-1;
-  &:focus{
-    outline: 1px solid $blue;
+  &:focus {
     box-shadow: 0 5px 10px $light-box-shadow;
   }
-  &::placeholder{
-    color: $light-placeholder-color ;
+}
+.input-light-dark {
+  background-color: #707070;
+  color: $text-color-1;
+  &:focus {
+    box-shadow: 5px 5px 5px rgb(54, 54, 54);
   }
 }
 .button-light {
@@ -70,28 +103,33 @@
   font-size: 18px;
   cursor: pointer;
 }
-#signup-button{
+#signup-button {
   margin-top: 16px;
 }
-#signup-email-error{
+#signup-email-error {
   background-color: #fff2f2;
   border: 1px solid #f77474;
-  &:focus{
+  &:focus {
     outline: none;
     box-shadow: none;
   }
-  &::placeholder{
+  &::placeholder {
     color: #f77474;
   }
 }
-#signup-password-error{
+#signup-password-error {
   background-color: #fff2f2;
   border: 1px solid #f77474;
-  &:focus{
+  &:focus {
     outline: none;
     box-shadow: none;
   }
-  &::placeholder{
+  &::placeholder {
     color: #f77474;
   }
+}
+.signup-change-theme-button {
+  margin-top: 24px;
+  display: flex;
+  justify-content: flex-end;
 }

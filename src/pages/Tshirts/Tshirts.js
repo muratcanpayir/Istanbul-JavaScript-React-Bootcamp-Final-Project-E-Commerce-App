@@ -10,7 +10,7 @@ import useTheme from "../../hooks/useTheme";
 function Products() {
   const dispatch = useDispatch();
   const history = useHistory();
-  const {theme}=useTheme();
+  const { theme } = useTheme();
   useEffect(() => {
     dispatch(getTshirts());
   }, [dispatch]);
@@ -21,10 +21,18 @@ function Products() {
       <Header />
       {tshirts.status === REQUEST_STATUS.PENDING && <div>Loading....</div>}
       {tshirts.status === REQUEST_STATUS.SUCCESS && (
-        <div className={`product-container ${theme==="light"?"product-container-light":"product-container-dark"}`}>
+        <div
+          className={`product-container ${
+            theme === "light"
+              ? "product-container-light"
+              : "product-container-dark"
+          }`}
+        >
           {tshirts.data.map((tshirt) => (
             <div
-              className={`product-card ${theme==="light"?"product-card-light":"product-card-dark"}`}
+              className={`product-card ${
+                theme === "light" ? "product-card-light" : "product-card-dark"
+              }`}
               onClick={() => {
                 history.push("tshirt-details/" + tshirt.id);
               }}
@@ -33,7 +41,11 @@ function Products() {
               <div className="image">
                 <img src={tshirt.imageUrl} alt={tshirt.title} />
               </div>
-              <div className={`product-info ${theme==="light"?"product-info-light":"product-info-dark"}`}>
+              <div
+                className={`product-info ${
+                  theme === "light" ? "product-info-light" : "product-info-dark"
+                }`}
+              >
                 <div>{tshirt.title}</div>
                 <div>{tshirt.price}</div>
               </div>

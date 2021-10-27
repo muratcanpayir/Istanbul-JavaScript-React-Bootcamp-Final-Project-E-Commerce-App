@@ -12,7 +12,7 @@ import useTheme from "../../hooks/useTheme";
 function Hats() {
   const history = useHistory();
   const dispatch = useDispatch();
-  const {theme}=useTheme();
+  const { theme } = useTheme();
   useEffect(() => {
     dispatch(getHats());
   }, [dispatch]);
@@ -22,10 +22,18 @@ function Hats() {
       <Header />
       {hats.status === REQUEST_STATUS.PENDING && <div>Loading...</div>}
       {hats.status === REQUEST_STATUS.SUCCESS && (
-        <div className={`product-container ${theme==="light"?"product-container-light":"product-container-dark"}`}>
+        <div
+          className={`product-container ${
+            theme === "light"
+              ? "product-container-light"
+              : "product-container-dark"
+          }`}
+        >
           {hats.data.map((hat) => (
             <div
-            className={`product-card ${theme==="light"?"product-card-light":"product-card-dark"}`}
+              className={`product-card ${
+                theme === "light" ? "product-card-light" : "product-card-dark"
+              }`}
               onClick={() => {
                 dispatch(getHatDetail(hat.id));
                 history.push("hat-details/" + hat.id);
@@ -35,7 +43,11 @@ function Hats() {
               <div className="image">
                 <img src={hat.imageUrl} alt={hat.title} />
               </div>
-              <div className={`product-info ${theme==="light"?"product-info-light":"product-info-dark"}`}>
+              <div
+                className={`product-info ${
+                  theme === "light" ? "product-info-light" : "product-info-dark"
+                }`}
+              >
                 <div>{hat.title}</div>
                 <div>{hat.price}</div>
               </div>

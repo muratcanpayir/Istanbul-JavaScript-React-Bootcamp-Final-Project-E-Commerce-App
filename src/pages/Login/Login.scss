@@ -1,22 +1,22 @@
-#login-email-error{
+#login-email-error {
   background-color: #fff2f2;
   border: 1px solid #f77474;
-  &:focus{
+  &:focus {
     outline: none;
     box-shadow: none;
   }
-  &::placeholder{
+  &::placeholder {
     color: #f77474;
   }
 }
-#login-password-error{
+#login-password-error {
   background-color: #fff2f2;
   border: 1px solid #f77474;
-  &:focus{
+  &:focus {
     outline: none;
     box-shadow: none;
   }
-  &::placeholder{
+  &::placeholder {
     color: #f77474;
   }
 }

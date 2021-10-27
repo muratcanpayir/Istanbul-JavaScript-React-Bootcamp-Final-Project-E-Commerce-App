@@ -40,34 +40,41 @@ function Header() {
     localStorage.removeItem("email");
     window.location.href = "/";
   };
-  const changeTheme=()=>{
-    if(theme==="light"){
+  const changeTheme = () => {
+    if (theme === "light") {
       setTheme("dark");
-    }
-    else{
+      localStorage.setItem("theme", "dark");
+    } else {
       setTheme("light");
+      localStorage.setItem("theme", "light");
     }
-  }
+  };
   console.log(theme);
   return (
-    <header className={`header ${theme==="light"?"header-light":"header-dark"}`}>
-      <div className={`user ${theme==="light"?"user-light":"user-dark"}`}>
+    <header
+      className={`header ${theme === "light" ? "header-light" : "header-dark"}`}
+    >
+      <div className={`user ${theme === "light" ? "user-light" : "user-dark"}`}>
         {email}
         <button className="logout-button" onClick={logout}>
           <IoIosLogOut size={"24px"} />
         </button>
-        <button className="theme-button" onClick={changeTheme}>Theme</button>
+        <button className="theme-button" onClick={changeTheme}>
+          Theme
+        </button>
       </div>
       <nav className="nav">
         <p
           onClick={() => {
             history.push("/");
           }}
-          className={`header-title ${theme==="light"?"header-title-light":"header-title-dark"}`}
+          className={`header-title ${
+            theme === "light" ? "header-title-light" : "header-title-dark"
+          }`}
         >
           E-Ticaret Sitesi
         </p>
-        <div className={theme==="light"?"menu":"menu-dark"}>
+        <div className={theme === "light" ? "menu" : "menu-dark"}>
           <Link to="/tshirts">T-Shirt</Link>
           <Link to="/hats">Hat</Link>
           <Link to="/cart">Cart: {totalPrice.toFixed(2)} $</Link>
