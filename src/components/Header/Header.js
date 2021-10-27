@@ -7,6 +7,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import REQUEST_STATUS from "../../helpers/constants";
 import { getCart } from "../../redux/actions/cartAction";
+import {IoIosLogOut} from "react-icons/io";
 
 function Header() {
   const addToCart=useSelector(state=>state.addToCart)
@@ -43,7 +44,7 @@ function Header() {
   return (
     <header>
       <div className="user">{email}
-      <button onClick={logout}>logout</button>
+      <button className="logout-button" onClick={logout}><IoIosLogOut size={"24px"} /></button>
       </div>
       <nav>
         <p
