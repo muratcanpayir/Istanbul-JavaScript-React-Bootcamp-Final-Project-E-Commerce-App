@@ -50,8 +50,8 @@ function Header() {
   }
   console.log(theme);
   return (
-    <header className="header">
-      <div className="user">
+    <header className={theme==="light"?"header":"header-dark"}>
+      <div className={theme==="light"?"user":"user-dark"}>
         {email}
         <button className="logout-button" onClick={logout}>
           <IoIosLogOut size={"24px"} />
@@ -63,11 +63,11 @@ function Header() {
           onClick={() => {
             history.push("/");
           }}
-          className="header-title"
+          className={theme==="light"?"header-title":"header-title-dark"}
         >
           E-Ticaret Sitesi
         </p>
-        <div className="menu">
+        <div className={theme==="light"?"menu":"menu-dark"}>
           <Link to="/tshirts">T-Shirt</Link>
           <Link to="/hats">Hat</Link>
           <Link to="/cart">Cart: {totalPrice.toFixed(2)} $</Link>
