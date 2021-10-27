@@ -3,17 +3,26 @@
   background-color: $bg-color-light;
   min-height: 100vh;
   height: 100%;
+  width: 100%;
+  display: flex;
 }
 .tshirt-detail{
-  margin: 0 220px;
+  margin: 20px 220px;
   display: flex;
   border: 1px solid $light-box-shadow;
   border-radius: 8px;
   box-shadow: 0 5px 5px $light-box-shadow;
   padding: 16px;
+  max-height: 484px;
+  width: 100%;
 }
 .tshirt-detail-image{
   margin-right: 24px;
+  img{
+    height: 450px;
+    width: 300px;
+    object-fit: cover;
+  }
 }
 .tshirt-detail-info{
   display: flex;
