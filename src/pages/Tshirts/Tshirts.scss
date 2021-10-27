@@ -1,24 +1,42 @@
 @import "../../style/variables.scss";
-.product-container{
+.product-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
   padding: 20px 220px;
+}
+.product-container-light {
   background-color: $bg-color-light;
 }
+.product-container-dark {
+  background-color: $bg-color-dark;
+}
+
 .product-card {
   flex: 0 1 24%;
   padding: 10px;
-  border: 1px solid $light-box-shadow;
-  background-color: rgb(228, 227, 227);
   border-radius: 8px;
   max-width: 320px;
   margin-bottom: 20px;
-  box-shadow: 0 5px 5px rgb(98, 98, 98);
   cursor: pointer;
-  &:hover{
+  &:hover {
     transform: translateY(-2px);
+  }
+}
+.product-card-light {
+  background-color: rgb(228, 227, 227);
+  border: 1px solid $light-box-shadow;
+  box-shadow: 0 5px 5px rgb(98, 98, 98);
+  &:hover {
     box-shadow: 7px 7px 2px rgb(98, 98, 98);
+  }
+}
+.product-card-dark {
+  background-color: rgb(66, 66, 66);
+  border: 1px solid rgb(47, 47, 47);
+  box-shadow: 0 5px 5px rgb(20, 20, 20);
+  &:hover {
+    box-shadow: 7px 7px 5px rgb(20, 20, 20);
   }
 }
 .image {
@@ -30,7 +48,13 @@
     object-fit: cover;
   }
 }
-.product-info{
+.product-info {
   display: flex;
   justify-content: space-between;
+}
+.product-info-light {
+  color: $text-color-1;
+}
+.product-info-dark {
+  color: $white;
 }

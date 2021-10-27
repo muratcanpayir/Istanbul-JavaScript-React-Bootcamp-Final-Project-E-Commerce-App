@@ -3,24 +3,27 @@ import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
 import "./Header.scss";
 import useCart from "../../hooks/useCart";
+import useTheme from "../../hooks/useTheme";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import REQUEST_STATUS from "../../helpers/constants";
 import { getCart } from "../../redux/actions/cartAction";
-import {IoIosLogOut} from "react-icons/io";
+import { IoIosLogOut } from "react-icons/io";
 
 function Header() {
-  const addToCart=useSelector(state=>state.addToCart)
-  const [email,setEmail]=useState("");
-  const { totalPrice,setTotalPrice } = useCart();
-  const dispatch=useDispatch()
-  useEffect(()=>{
+  const addToCart = useSelector((state) => state.addToCart);
+  const [email, setEmail] = useState("");
+  const { totalPrice, setTotalPrice } = useCart();
+  const { theme, setTheme } = useTheme();
+  const history = useHistory();
+  const dispatch = useDispatch();
+  useEffect(() => {
     dispatch(getCart());
-  },[])
-  useEffect(()=>{
+  }, []);
+  useEffect(() => {
     dispatch(getCart());
-  },[addToCart])
-  const cart=useSelector(state=>state.cart)
+  }, [addToCart]);
+  const cart = useSelector((state) => state.cart);
   useEffect(() => {
     if (cart.status === REQUEST_STATUS.SUCCESS) {
       setTotalPrice(0);
@@ -29,33 +32,49 @@ function Header() {
       });
     }
   }, [cart]);
-  useEffect(()=>{
-    setEmail(localStorage.getItem("email")); 
-  },[])
-  const logout=()=>{
+  useEffect(() => {
+    setEmail(localStorage.getItem("email"));
+  }, []);
+  const logout = () => {
     localStorage.removeItem("access_token");
     localStorage.removeItem("email");
-    window.location.href="/";
-  }
-  
-  console.log(cart);
-  
-  const history = useHistory();
+    window.location.href = "/";
+  };
+  const changeTheme = () => {
+    if (theme === "light") {
+      setTheme("dark");
+      localStorage.setItem("theme", "dark");
+    } else {
+      setTheme("light");
+      localStorage.setItem("theme", "light");
+    }
+  };
+  console.log(theme);
   return (
-    <header>
-      <div className="user">{email}
-      <button className="logout-button" onClick={logout}><IoIosLogOut size={"24px"} /></button>
+    <header
+      className={`header ${theme === "light" ? "header-light" : "header-dark"}`}
+    >
+      <div className={`user ${theme === "light" ? "user-light" : "user-dark"}`}>
+        {email}
+        <button className="logout-button" onClick={logout}>
+          <IoIosLogOut size={"24px"} />
+        </button>
+        <button className="theme-button" onClick={changeTheme}>
+          Theme
+        </button>
       </div>
-      <nav>
+      <nav className="nav">
         <p
           onClick={() => {
             history.push("/");
           }}
-          className="header-title"
+          className={`header-title ${
+            theme === "light" ? "header-title-light" : "header-title-dark"
+          }`}
         >
           E-Ticaret Sitesi
         </p>
-        <div className="menu">
+        <div className={theme === "light" ? "menu" : "menu-dark"}>
           <Link to="/tshirts">T-Shirt</Link>
           <Link to="/hats">Hat</Link>
           <Link to="/cart">Cart: {totalPrice.toFixed(2)} $</Link>

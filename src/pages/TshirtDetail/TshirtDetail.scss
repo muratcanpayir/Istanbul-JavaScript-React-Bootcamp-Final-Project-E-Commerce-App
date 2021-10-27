@@ -1,59 +1,75 @@
 @import "../../style/variables.scss";
-.tshirt-detail-wrapper{
-  background-color: $bg-color-light;
+.tshirt-detail-wrapper {
   min-height: 100vh;
   height: 100%;
   width: 100%;
   display: flex;
 }
-.tshirt-detail{
+.tshirt-detail-wrapper-light {
+  background-color: $bg-color-light;
+}
+.tshirt-detail-wrapper-dark {
+  background-color: $bg-color-dark;
+}
+.tshirt-detail {
   margin: 20px 220px;
   display: flex;
-  border: 1px solid $light-box-shadow;
   border-radius: 8px;
   padding: 16px;
   max-height: 484px;
   width: 100%;
+}
+.tshirt-detail-light {
+  border: 1px solid $light-box-shadow;
   box-shadow: 5px 5px 5px rgb(214, 214, 214);
 }
-.tshirt-detail-image{
+.tshirt-detail-dark {
+  border: 1px solid #4d4d4d;
+  box-shadow: 5px 5px 5px rgb(20, 20, 20);
+}
+
+.tshirt-detail-image {
   margin-right: 24px;
-  img{
+  img {
     height: 450px;
     width: 300px;
     object-fit: cover;
   }
 }
-.tshirt-detail-info{
+.tshirt-detail-info {
   display: flex;
   flex-direction: column;
   justify-content: flex-start;
+}
+.tshirt-detail-info-light {
   color: $text-color-1;
 }
-.tshirt-detail-title{
+.tshirt-detail-info-dark {
+  color: white;
+}
+.tshirt-detail-title {
   text-align: center;
   margin-bottom: 16px;
   font-size: 20px;
   font-weight: 700;
-  
 }
-.tshirt-detail-desc{
+.tshirt-detail-desc {
   margin-bottom: 16px;
 }
-.tshirt-detail-color{
+.tshirt-detail-color {
   font-weight: 700;
-  span{
+  span {
     font-weight: 400;
   }
 }
-.tshirt-detail-price{
+.tshirt-detail-price {
   margin-bottom: 16px;
   font-weight: 700;
-  span{
+  span {
     font-weight: 400;
   }
 }
-.add-to-cart-button{
+.add-to-cart-button {
   width: 200px;
   background-color: orange;
   border: none;
@@ -62,5 +78,4 @@
   padding: 8px;
   border-radius: 8px;
   font-weight: 700;
-
 }
