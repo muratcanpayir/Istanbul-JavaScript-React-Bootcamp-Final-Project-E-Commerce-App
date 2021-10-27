@@ -1,0 +1,57 @@
+@import "../../style/variables.scss";
+.tshirt-detail-wrapper{
+  background-color: $bg-color-light;
+  min-height: 100vh;
+  height: 100%;
+}
+.tshirt-detail{
+  margin: 0 220px;
+  display: flex;
+  border: 1px solid $light-box-shadow;
+  border-radius: 8px;
+  box-shadow: 0 5px 5px $light-box-shadow;
+  padding: 16px;
+}
+.tshirt-detail-image{
+  margin-right: 24px;
+}
+.tshirt-detail-info{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  color: $text-color-1;
+}
+.tshirt-detail-title{
+  text-align: center;
+  margin-bottom: 16px;
+  font-size: 20px;
+  font-weight: 700;
+  
+}
+.tshirt-detail-desc{
+  margin-bottom: 16px;
+}
+.tshirt-detail-color{
+  font-weight: 700;
+  span{
+    font-weight: 400;
+  }
+}
+.tshirt-detail-price{
+  margin-bottom: 16px;
+  font-weight: 700;
+  span{
+    font-weight: 400;
+  }
+}
+.add-to-cart-button{
+  width: 200px;
+  background-color: orange;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 8px;
+  border-radius: 8px;
+  font-weight: 700;
+
+}

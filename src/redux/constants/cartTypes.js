@@ -1,3 +1,4 @@
 export const GET_CART_PENDING = "GET_CART_PENDING";
 export const GET_CART_SUCCESS = "GET_CART_SUCCESS";
 export const GET_CART_ERROR = "GET_CART_ERROR";
+export const GET_CART_INITIAL = "GET_CART_INITIAL";

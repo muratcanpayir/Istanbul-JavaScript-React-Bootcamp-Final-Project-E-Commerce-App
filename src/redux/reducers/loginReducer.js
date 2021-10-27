@@ -1,9 +1,8 @@
 import {
-  DELETE_FROM_CART_PENDING,
-  DELETE_FROM_CART_SUCCESS,
-  DELETE_FROM_CART_ERROR,
-  DELETE_FROM_CART_INITIAL,
-} from "../constants/deleteFromCart";
+  POST_LOGIN_PENDING,
+  POST_LOGIN_SUCCESS,
+  POST_LOGIN_ERROR,
+} from "../constants/loginTypes";
 import REQUEST_STATUS from "../../helpers/constants";
 
 const initialState = {
@@ -11,18 +10,17 @@ const initialState = {
   status: "",
   error: "",
 };
-export const deleteFromCartReducer = (state = initialState, action) => {
+export const loginReducer = (state = initialState, action) => {
   switch (action.type) {
-    case DELETE_FROM_CART_INITIAL:
-      return { state, status: REQUEST_STATUS.PENDING };
-    case DELETE_FROM_CART_PENDING:
+    case POST_LOGIN_PENDING:
       return { ...state, status: REQUEST_STATUS.PENDING };
-    case DELETE_FROM_CART_SUCCESS:
+    case POST_LOGIN_SUCCESS:
       return { ...state, status: REQUEST_STATUS.SUCCESS, data: action.payload };
-    case DELETE_FROM_CART_ERROR:
+    case POST_LOGIN_ERROR:
       return { ...state, status: REQUEST_STATUS.ERROR, error: action.payload };
 
     default:
       return state;
   }
 };
+

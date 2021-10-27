@@ -3,6 +3,7 @@ import {
   POST_ADD_TO_CART_PENDING,
   POST_ADD_TO_CART_SUCCESS,
   POST_ADD_TO_CART_ERROR,
+  POST_ADD_TO_CART_INITIAL,
 } from "../constants/addToCartTypes";
 
 export const postAddToCart = (data) => (dispatch) => {
@@ -16,3 +17,6 @@ export const postAddToCart = (data) => (dispatch) => {
       dispatch({ type: POST_ADD_TO_CART_ERROR, payload: error.response.data });
     });
 };
+export const resetAddToCart=()=>(dispatch)=>{
+  dispatch({type:POST_ADD_TO_CART_INITIAL});
+}
