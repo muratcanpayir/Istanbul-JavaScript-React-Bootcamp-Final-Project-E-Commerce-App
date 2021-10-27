@@ -48,12 +48,13 @@ function TshirtDetail() {
                     {tshirtDetails.data.description}
                   </div>
                   <div className="tshirt-detail-color">
-                    {tshirtDetails.data.color}
+                   Color: <span>{tshirtDetails.data.color}</span>
                   </div>
                   <div className="tshirt-detail-price">
-                    {tshirtDetails.data.price}
+                   Price: <span>{tshirtDetails.data.price} $</span>
                   </div>
                   <button
+                    className="add-to-cart-button"
                     onClick={() => {
                       dispatch(postAddToCart(tshirtDetails.data));
                     }}

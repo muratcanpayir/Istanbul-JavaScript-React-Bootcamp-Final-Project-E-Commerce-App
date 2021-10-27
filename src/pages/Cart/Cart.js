@@ -33,7 +33,7 @@ function Cart() {
   const deleteState = useSelector((state) => state.deleteFromCart);
   useEffect(() => {
     if (deleteState.status === REQUEST_STATUS.SUCCESS) {
-      window.location.href = "/cart";
+      dispatch(getCart());
     }
   }, [deleteState]);
 

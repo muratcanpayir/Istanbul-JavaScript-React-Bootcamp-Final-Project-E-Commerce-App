@@ -16,7 +16,8 @@ function Signup() {
     dispatch(postLogin(email,password))
   }
   useEffect(()=>{
-    localStorage.setItem("access_token",token.data)
+    localStorage.setItem("access_token",token.data);
+    
   },[access])
   return (
     <div className="signup-container">

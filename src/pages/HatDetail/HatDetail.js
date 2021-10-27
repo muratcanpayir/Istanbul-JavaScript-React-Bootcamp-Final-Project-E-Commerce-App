@@ -33,7 +33,7 @@ function HatDetail() {
             )}
             {hatDetails.status === REQUEST_STATUS.SUCCESS && (
               <div className="tshirt-detail" key={hatDetails.data.id}>
-                <div className="tshirt-detail-image">
+                <div className="hat-detail-image">
                   <img
                     src={hatDetails.data.imageUrl}
                     alt={hatDetails.data.title}
@@ -47,12 +47,13 @@ function HatDetail() {
                     {hatDetails.data.description}
                   </div>
                   <div className="tshirt-detail-color">
-                    {hatDetails.data.color}
+                    Color: <span>{hatDetails.data.color}</span>
                   </div>
                   <div className="tshirt-detail-price">
-                    {hatDetails.data.price}
+                    Price: <span>{hatDetails.data.price} $</span>
                   </div>
                   <button
+                    className="add-to-cart-button"
                     onClick={() => {
                       dispatch(postAddToCart(hatDetails.data));
                     }}
