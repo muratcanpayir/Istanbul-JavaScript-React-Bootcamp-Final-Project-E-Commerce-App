@@ -1,18 +1,18 @@
-import React, { useContext, useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../../components/Header/Header";
 import REQUEST_STATUS from "../../helpers/constants";
-import { getCart, resetCart } from "../../redux/actions/cartAction";
+import { getCart } from "../../redux/actions/cartAction";
 import { RiDeleteBinLine } from "react-icons/ri";
 import {
   deleteFromCart,
   resetDeleteOffer,
 } from "../../redux/actions/deleteFromCartAction";
 import "./Cart.scss";
-import { UserContext } from "../../context/cartContext";
+import useCart from "../../hooks/useCart";
 
 function Cart() {
-  const {totalPrice,setTotalPrice}=useContext(UserContext);
+  const { totalPrice, setTotalPrice } = useCart();
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
 
@@ -40,34 +40,38 @@ function Cart() {
   return (
     <>
       <Header />
-      {cart.status===REQUEST_STATUS.PENDING && <div>Loading....</div>}
-      {cart.status===REQUEST_STATUS.SUCCESS &&
-      <div className="cart-container">
-        <div className="cart-wrapper">
-          {cart.data.map((item) => (
-            <div className="cart-items" key={item.id}>
-              <div className="cart-image">
-                <img src={item.imageUrl} alt={item.title} />
-              </div>
-              <div className="cart-items-right-side">
-                <div className="cart-items-info">
-                  <div className="cart-title">
-                    <p>{item.title}</p>
-                  </div>
-                  <div className="cart-price">
-                    <p>{item.price} $</p>
-                  </div>
+      {cart.status === REQUEST_STATUS.PENDING && <div>Loading....</div>}
+      {cart.status === REQUEST_STATUS.SUCCESS && (
+        <div className="cart-container">
+          <div className="cart-wrapper">
+            {cart.data.map((item) => (
+              <div className="cart-items" key={item.id}>
+                <div className="cart-image">
+                  <img src={item.imageUrl} alt={item.title} />
                 </div>
-                <button onClick={() => deleteProductFromCart(item.id)}>
-                  <RiDeleteBinLine size={"24px"} />
-                </button>
+                <div className="cart-items-right-side">
+                  <div className="cart-items-info">
+                    <div className="cart-title">
+                      <p>{item.title}</p>
+                    </div>
+                    <div className="cart-price">
+                      <p>{item.price} $</p>
+                    </div>
+                  </div>
+                  <button onClick={() => deleteProductFromCart(item.id)}>
+                    <RiDeleteBinLine size={"24px"} />
+                  </button>
+                </div>
               </div>
+            ))}
+            <div className="cart-subtotal">
+              <p>
+                Subtotal: <span>{totalPrice} $</span>
+              </p>
             </div>
-          ))}
-          <div className="cart-subtotal"><p>Subtotal: <span>{totalPrice} $</span></p></div>
+          </div>
         </div>
-      </div>
-      }
+      )}
     </>
   );
 }

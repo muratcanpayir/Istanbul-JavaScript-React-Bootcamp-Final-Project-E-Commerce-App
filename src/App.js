@@ -1,13 +1,13 @@
 import './App.scss';
-import { UserProvider } from './context/cartContext';
+import { CartProvider } from './context/cartContext';
 import Routes from "./routes/Routes";
 
 function App() {
   return (
     <div>
-      <UserProvider>
+      <CartProvider>
       <Routes />
-      </UserProvider>
+      </CartProvider>
     </div>
   );
 }

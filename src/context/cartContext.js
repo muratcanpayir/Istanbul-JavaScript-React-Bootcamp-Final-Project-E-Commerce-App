@@ -1,9 +1,9 @@
 import { createContext,useState } from "react";
 
-export const UserContext=createContext();
+export const CartContext=createContext();
 
-export const UserProvider=(({children})=>{
+export const CartProvider=(({children})=>{
   const [totalPrice,setTotalPrice]=useState(0);
-  return <UserContext.Provider value={{totalPrice,setTotalPrice}}>{children}</UserContext.Provider>
+  return <CartContext.Provider value={{totalPrice,setTotalPrice}}>{children}</CartContext.Provider>
 })
 

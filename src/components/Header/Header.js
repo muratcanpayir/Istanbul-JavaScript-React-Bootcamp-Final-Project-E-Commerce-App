@@ -1,18 +1,23 @@
-import React, { useContext } from "react";
+import React from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
 import "./Header.scss";
-import { UserContext } from "../../context/cartContext";
+import useCart from "../../hooks/useCart";
 
 function Header() {
-  const {totalPrice}=useContext(UserContext);
-  const history=useHistory();
+  const { totalPrice } = useCart();
+  const history = useHistory();
   return (
     <header>
       <nav>
-        <p onClick={()=>{
-          history.push("/");
-        }} className="header-title">E-Ticaret Sitesi</p>
+        <p
+          onClick={() => {
+            history.push("/");
+          }}
+          className="header-title"
+        >
+          E-Ticaret Sitesi
+        </p>
         <div className="menu">
           <Link to="/tshirts">T-Shirt</Link>
           <Link to="/hats">Hat</Link>
