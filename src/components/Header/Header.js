@@ -50,8 +50,8 @@ function Header() {
   }
   console.log(theme);
   return (
-    <header className={theme==="light"?"header":"header-dark"}>
-      <div className={theme==="light"?"user":"user-dark"}>
+    <header className={`header ${theme==="light"?"header-light":"header-dark"}`}>
+      <div className={`user ${theme==="light"?"user-light":"user-dark"}`}>
         {email}
         <button className="logout-button" onClick={logout}>
           <IoIosLogOut size={"24px"} />
@@ -63,7 +63,7 @@ function Header() {
           onClick={() => {
             history.push("/");
           }}
-          className={theme==="light"?"header-title":"header-title-dark"}
+          className={`header-title ${theme==="light"?"header-title-light":"header-title-dark"}`}
         >
           E-Ticaret Sitesi
         </p>
