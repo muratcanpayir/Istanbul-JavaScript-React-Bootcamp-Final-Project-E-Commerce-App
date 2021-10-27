@@ -8,6 +8,7 @@ import { hatDetailReducer } from "../reducers/hatDetailReducer";
 import { cartReducer } from "../reducers/cartReducer";
 import { addToCartReducer } from "../reducers/addToCartReducer";
 import { deleteFromCartReducer } from "../reducers/deleteFromCartReducer";
+import { loginReducer } from "../reducers/loginReducer";
 
 const reducers = combineReducers({
   tshirts: tshirtReducer,
@@ -17,6 +18,7 @@ const reducers = combineReducers({
   cart: cartReducer,
   addToCart: addToCartReducer,
   deleteFromCart: deleteFromCartReducer,
+  login: loginReducer,
 });
 
 export const store = createStore(

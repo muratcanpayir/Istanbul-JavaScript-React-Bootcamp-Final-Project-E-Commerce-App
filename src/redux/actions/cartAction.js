@@ -3,6 +3,7 @@ import {
   GET_CART_PENDING,
   GET_CART_SUCCESS,
   GET_CART_ERROR,
+  GET_CART_INITIAL,
 } from "../constants/cartTypes";
 
 export const getCart = () => (dispatch) => {
@@ -16,3 +17,7 @@ export const getCart = () => (dispatch) => {
       dispatch({ type: GET_CART_ERROR, payload: error.response.data });
     });
 };
+
+export const resetCart=()=>(dispatch)=>{
+  dispatch({type:GET_CART_INITIAL});
+}

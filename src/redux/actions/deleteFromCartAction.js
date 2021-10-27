@@ -3,6 +3,7 @@ import {
   DELETE_FROM_CART_PENDING,
   DELETE_FROM_CART_SUCCESS,
   DELETE_FROM_CART_ERROR,
+  DELETE_FROM_CART_INITIAL,
 } from "../constants/deleteFromCart";
 
 export const deleteFromCart = (id) => (dispatch) => {
@@ -16,3 +17,6 @@ export const deleteFromCart = (id) => (dispatch) => {
       dispatch({ type: DELETE_FROM_CART_ERROR, payload: error.response.data });
     });
 };
+export const resetDeleteOffer=(data)=>(dispatch)=>{
+  dispatch({type:DELETE_FROM_CART_INITIAL});
+}

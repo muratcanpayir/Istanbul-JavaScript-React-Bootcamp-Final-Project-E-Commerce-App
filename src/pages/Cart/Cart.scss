@@ -1,0 +1,35 @@
+@import "../../style/variables.scss";
+.cart-container{
+  background-color: brown;
+  height: 100vh;
+}
+.cart-wrapper{
+  margin:20px 220px;
+  background-color: white;
+}
+.cart-items{
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  border: 1px solid black;
+  padding: 8px;
+}
+.cart-image{
+  max-height: 100px;
+  width: auto;
+  img{
+    height: 100px;
+    max-width: 65px;
+    width: auto;
+  }
+}
+.cart-items-info{
+  display: flex;
+  flex-direction: column;
+}
+.cart-items-right-side{
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}

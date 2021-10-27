@@ -2,6 +2,7 @@ import {
   GET_CART_PENDING,
   GET_CART_SUCCESS,
   GET_CART_ERROR,
+  GET_CART_INITIAL,
 } from "../constants/cartTypes";
 import REQUEST_STATUS from "../../helpers/constants";
 
@@ -12,6 +13,8 @@ const initialState = {
 };
 export const cartReducer = (state = initialState, action) => {
   switch (action.type) {
+    case GET_CART_INITIAL:
+      return { state, status: REQUEST_STATUS.PENDING };
     case GET_CART_PENDING:
       return { ...state, status: REQUEST_STATUS.PENDING };
     case GET_CART_SUCCESS:
@@ -23,4 +26,3 @@ export const cartReducer = (state = initialState, action) => {
       return state;
   }
 };
-
