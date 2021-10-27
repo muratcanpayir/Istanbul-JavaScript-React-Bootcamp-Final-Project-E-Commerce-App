@@ -9,11 +9,15 @@ import REQUEST_STATUS from "../../helpers/constants";
 import { getCart } from "../../redux/actions/cartAction";
 
 function Header() {
+  const addToCart=useSelector(state=>state.addToCart)
   const { totalPrice,setTotalPrice } = useCart();
   const dispatch=useDispatch()
   useEffect(()=>{
     dispatch(getCart());
   },[])
+  useEffect(()=>{
+    dispatch(getCart());
+  },[addToCart])
   const cart=useSelector(state=>state.cart)
   useEffect(() => {
     if (cart.status === REQUEST_STATUS.SUCCESS) {
@@ -41,7 +45,7 @@ function Header() {
         <div className="menu">
           <Link to="/tshirts">T-Shirt</Link>
           <Link to="/hats">Hat</Link>
-          <Link to="/cart">Cart: {totalPrice} $</Link>
+          <Link to="/cart">Cart: {totalPrice.toFixed(2)} $</Link>
         </div>
       </nav>
     </header>

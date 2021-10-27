@@ -66,7 +66,7 @@ function Cart() {
             ))}
             <div className="cart-subtotal">
               <p>
-                Subtotal: <span>{totalPrice} $</span>
+                Subtotal: <span>{totalPrice.toFixed(2)} $</span>
               </p>
             </div>
           </div>
