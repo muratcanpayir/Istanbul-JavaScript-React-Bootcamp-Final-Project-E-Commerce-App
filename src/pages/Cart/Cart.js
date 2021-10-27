@@ -39,6 +39,8 @@ function Cart() {
   return (
     <>
       <Header />
+      {cart.status===REQUEST_STATUS.PENDING && <div>Loading....</div>}
+      {cart.status===REQUEST_STATUS.SUCCESS &&
       <div className="cart-container">
         <div className="cart-wrapper">
           {cart.data.map((item) => (
@@ -52,7 +54,7 @@ function Cart() {
                     <p>{item.title}</p>
                   </div>
                   <div className="cart-price">
-                    <p>{item.price} TL</p>
+                    <p>{item.price} $</p>
                   </div>
                 </div>
                 <button onClick={() => deleteProductFromCart(item.id)}>
@@ -61,9 +63,10 @@ function Cart() {
               </div>
             </div>
           ))}
-          <div>{totalPrice}</div>
+          <div className="cart-subtotal"><p>Subtotal: <span>{totalPrice} $</span></p></div>
         </div>
       </div>
+      }
     </>
   );
 }
