@@ -1,16 +1,21 @@
-import React, { useEffect} from "react";
+import React, { useEffect } from "react";
 import { useDispatch } from "react-redux";
 import { useSelector } from "react-redux";
 import { useParams } from "react-router";
 import REQUEST_STATUS from "../../helpers/constants";
 import { getTshirtDetail } from "../../redux/actions/tshirtDetailAction";
-import { postAddToCart, resetAddToCart } from "../../redux/actions/addToCartAction";
+import {
+  postAddToCart,
+  resetAddToCart,
+} from "../../redux/actions/addToCartAction";
 import "./TshirtDetail.scss";
 import Header from "../../components/Header/Header";
+import useTheme from "../../hooks/useTheme";
 
 function TshirtDetail() {
   const { id } = useParams();
   const dispatch = useDispatch();
+  const { theme } = useTheme();
   useEffect(() => {
     dispatch(getTshirtDetail(id));
   }, []);
@@ -26,21 +31,40 @@ function TshirtDetail() {
   return (
     <>
       <Header />
-      <div className="tshirt-detail-wrapper">
+      <div
+        className={`tshirt-detail-wrapper ${
+          theme === "light"
+            ? "tshirt-detail-wrapper-light"
+            : "tshirt-detail-wrapper-dark"
+        }`}
+      >
         {
           <>
             {tshirtDetails.status === REQUEST_STATUS.PENDING && (
               <div>Loading...</div>
             )}
             {tshirtDetails.status === REQUEST_STATUS.SUCCESS && (
-              <div className="tshirt-detail" key={tshirtDetails.data.id}>
+              <div
+                className={`tshirt-detail ${
+                  theme === "light"
+                    ? "tshirt-detail-light"
+                    : "tshirt-detail-dark"
+                }`}
+                key={tshirtDetails.data.id}
+              >
                 <div className="tshirt-detail-image">
                   <img
                     src={tshirtDetails.data.imageUrl}
                     alt={tshirtDetails.data.title}
                   />
                 </div>
-                <div className="tshirt-detail-info">
+                <div
+                  className={`tshirt-detail-info ${
+                    theme === "light"
+                      ? "tshirt-detail-info-light"
+                      : "tshirt-detail-info-dark"
+                  }`}
+                >
                   <div className="tshirt-detail-title">
                     {tshirtDetails.data.title}
                   </div>
@@ -48,10 +72,10 @@ function TshirtDetail() {
                     {tshirtDetails.data.description}
                   </div>
                   <div className="tshirt-detail-color">
-                   Color: <span>{tshirtDetails.data.color}</span>
+                    Color: <span>{tshirtDetails.data.color}</span>
                   </div>
                   <div className="tshirt-detail-price">
-                   Price: <span>{tshirtDetails.data.price} $</span>
+                    Price: <span>{tshirtDetails.data.price} $</span>
                   </div>
                   <button
                     className="add-to-cart-button"
