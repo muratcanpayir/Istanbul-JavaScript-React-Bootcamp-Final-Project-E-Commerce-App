@@ -11,10 +11,10 @@
   display: flex;
   border: 1px solid $light-box-shadow;
   border-radius: 8px;
-  box-shadow: 0 5px 5px $light-box-shadow;
   padding: 16px;
   max-height: 484px;
   width: 100%;
+  box-shadow: 5px 5px 5px rgb(214, 214, 214);
 }
 .tshirt-detail-image{
   margin-right: 24px;
