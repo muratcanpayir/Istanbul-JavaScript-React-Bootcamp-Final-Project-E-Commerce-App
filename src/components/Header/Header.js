@@ -1,9 +1,11 @@
-import React from "react";
+import React, { useContext } from "react";
 import { Link } from "react-router-dom";
 import { useHistory } from "react-router";
 import "./Header.scss";
+import { UserContext } from "../../context/cartContext";
 
 function Header() {
+  const {totalPrice}=useContext(UserContext);
   const history=useHistory();
   return (
     <header>
@@ -14,7 +16,7 @@ function Header() {
         <div className="menu">
           <Link to="/tshirts">T-Shirt</Link>
           <Link to="/hats">Hat</Link>
-          <Link to="/cart">Cart</Link>
+          <Link to="/cart">Cart: {totalPrice} $</Link>
         </div>
       </nav>
     </header>

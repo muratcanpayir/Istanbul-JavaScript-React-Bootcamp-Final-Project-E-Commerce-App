@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Header from "../../components/Header/Header";
 import REQUEST_STATUS from "../../helpers/constants";
@@ -9,9 +9,10 @@ import {
   resetDeleteOffer,
 } from "../../redux/actions/deleteFromCartAction";
 import "./Cart.scss";
+import { UserContext } from "../../context/cartContext";
 
 function Cart() {
-  const [totalPrice, setTotalPrice] = useState(0);
+  const {totalPrice,setTotalPrice}=useContext(UserContext);
   const dispatch = useDispatch();
   const cart = useSelector((state) => state.cart);
 

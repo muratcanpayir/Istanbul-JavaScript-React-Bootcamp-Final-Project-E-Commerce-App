@@ -14,6 +14,7 @@ import HatDetail from "../pages/HatDetail/HatDetail";
 import Cart from "../pages/Cart/Cart";
 
 function Routes() {
+  const [totalPrice, setTotalPrice] = useState(0);
   return (
     <Router>
       
@@ -38,7 +39,7 @@ function Routes() {
           <HatDetail />
         </Route>
         <Route path="/cart">
-          <Cart />
+          <Cart totalPrice={totalPrice} setTotalPrice={setTotalPrice} />
         </Route>
       </Switch>
     </Router>
