@@ -24,7 +24,7 @@ function Products() {
         <div className={`product-container ${theme==="light"?"product-container-light":"product-container-dark"}`}>
           {tshirts.data.map((tshirt) => (
             <div
-              className="product-card"
+              className={`product-card ${theme==="light"?"product-card-light":"product-card-dark"}`}
               onClick={() => {
                 history.push("tshirt-details/" + tshirt.id);
               }}
@@ -33,7 +33,7 @@ function Products() {
               <div className="image">
                 <img src={tshirt.imageUrl} alt={tshirt.title} />
               </div>
-              <div className="product-info">
+              <div className={`product-info ${theme==="light"?"product-info-light":"product-info-dark"}`}>
                 <div>{tshirt.title}</div>
                 <div>{tshirt.price}</div>
               </div>
