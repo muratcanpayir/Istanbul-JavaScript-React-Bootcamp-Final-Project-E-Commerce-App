@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import {
   BrowserRouter as Router,
   Switch,
@@ -15,35 +15,57 @@ import Cart from "../pages/Cart/Cart";
 
 function Routes() {
   const [totalPrice, setTotalPrice] = useState(0);
+  const [isLoggedIn, setIsLoggedIn] = useState(false);
+  useEffect(() => {
+    if (localStorage.getItem("access_token")) {
+      setIsLoggedIn(true);
+    }
+  }, []);
   return (
     <Router>
-      
       {/* <Redirect to="/products" /> */}
-      <Switch>
-        <Route path="/tshirts">
-          <Tshirts />
-        </Route>
-        <Route path="/hats">
-          <Hats />
-        </Route>
-        <Route path="/signup">
-          <Signup />
-        </Route>
-        <Route path="/login">
-          <Login />
-        </Route>
-        <Route path="/tshirt-details/:id">
-          <TshirtDetail />
-        </Route>
-        <Route path="/hat-details/:id">
-          <HatDetail />
-        </Route>
-        <Route path="/cart">
-          <Cart totalPrice={totalPrice} setTotalPrice={setTotalPrice} />
-        </Route>
-      </Switch>
+      {isLoggedIn ? (
+        <Switch>
+          <Route path="/cart">
+            <Cart totalPrice={totalPrice} setTotalPrice={setTotalPrice} />
+          </Route>
+          <Route path="/tshirts">
+            <Tshirts />
+          </Route>
+          <Route path="/hats">
+            <Hats />
+          </Route>
+          <Route path="/tshirt-details/:id">
+            <TshirtDetail />
+          </Route>
+          <Route path="/hat-details/:id">
+            <HatDetail />
+          </Route>
+        </Switch>
+      ) : (
+        <Switch>
+          <Route path="/signup">
+            <Signup />
+          </Route>
+          <Route path="/login">
+            <Login />
+          </Route>
+          <Route path="/tshirts">
+            <Tshirts />
+          </Route>
+          <Route path="/hats">
+            <Hats />
+          </Route>
+          <Route path="/tshirt-details/:id">
+            <TshirtDetail />
+          </Route>
+          <Route path="/hat-details/:id">
+            <HatDetail />
+          </Route>
+        </Switch>
+      )}
     </Router>
-  )
+  );
 }
 
 export default Routes;
