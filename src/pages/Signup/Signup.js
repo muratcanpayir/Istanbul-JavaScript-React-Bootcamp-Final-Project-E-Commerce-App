@@ -47,6 +47,7 @@ function Signup() {
           <input
             className="input-light"
             placeholder="E-Mail"
+            id={errors.email && "login-password-error"}
             {...register("email", {
               required: true,
               pattern: /\S+@\S+\.\S+/,
@@ -57,6 +58,7 @@ function Signup() {
             type="password"
             className="input-light"
             placeholder="Password"
+            id={errors.password && "login-password-error"}
             {...register("password", {
               required: true,
               minLength: 8,

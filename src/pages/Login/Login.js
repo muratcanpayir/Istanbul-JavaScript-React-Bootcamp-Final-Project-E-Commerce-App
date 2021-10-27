@@ -59,7 +59,7 @@ function Signup() {
             className="input-light"
             placeholder="Password"
             type="password"
-            id={errors.email && "login-password-error"}
+            id={errors.password && "login-password-error"}
             {...register("password", {
               required: true,
               minLength: 8,
