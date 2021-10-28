@@ -1,6 +1,7 @@
 import React from "react";
 import useTheme from "../../hooks/useTheme";
 import "./Footer.scss";
+import { FaLinkedin,FaGithub } from "react-icons/fa";
 
 function Footer() {
   const { theme } = useTheme();
@@ -21,13 +22,21 @@ function Footer() {
             </ul>
           </div>
           <div className="footer-contact">
-            <p>Contact Us</p>
-            <p>info@bootcamphomework.com</p>
+            <p className="contact-title">Contact Us</p>
+            <p>info@reactbootcamp.com</p>
             <p>Istanbul, Turkey</p>
           </div>
         </div>
       </footer>
-      <footer className="footer-downside">Created by Muratcan Payir</footer>
+      <footer className={`footer-downside ${theme==="light"?"footer-downside-light":"footer-downside-dark"}`}>
+        Created by Muratcan Payir{" "}
+        <a href="https://www.linkedin.com/in/muratcanpayir/" target="_blank">
+          <FaLinkedin size={"18px"} />
+        </a>
+        <a href="https://github.com/muratcanpayir" target="_blank">
+          <FaGithub size={"18px"} />
+        </a>
+      </footer>
     </>
   );
 }
