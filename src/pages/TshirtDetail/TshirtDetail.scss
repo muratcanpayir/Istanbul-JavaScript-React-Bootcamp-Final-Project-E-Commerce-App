@@ -79,3 +79,29 @@
   border-radius: 8px;
   font-weight: 700;
 }
+@media screen and (max-width:1550px){
+  .tshirt-detail{
+    margin: 0 120px;
+  }
+}
+@media screen and (max-width:1050px){
+  .tshirt-detail{
+    margin: 0 60px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .tshirt-detail{
+    margin: 0 30px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .tshirt-detail{
+    margin: 0 10px;
+    flex-direction: column;
+    height: auto;
+    max-height: none;
+  }
+  .add-to-cart-button{
+    width: 100%;
+  }
+}
