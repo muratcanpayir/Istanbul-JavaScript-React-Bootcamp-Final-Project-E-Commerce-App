@@ -9,6 +9,8 @@ import { useDispatch } from "react-redux";
 import REQUEST_STATUS from "../../helpers/constants";
 import { getCart } from "../../redux/actions/cartAction";
 import { IoIosLogOut } from "react-icons/io";
+import { AiOutlineUser } from "react-icons/ai";
+import { BsMoon } from "react-icons/bs";
 
 function Header() {
   const addToCart = useSelector((state) => state.addToCart);
@@ -55,12 +57,19 @@ function Header() {
       className={`header ${theme === "light" ? "header-light" : "header-dark"}`}
     >
       <div className={`user ${theme === "light" ? "user-light" : "user-dark"}`}>
-        {email}
-        <button className="logout-button" onClick={logout}>
-          <IoIosLogOut size={"24px"} />
-        </button>
-        <button className="theme-button" onClick={changeTheme}>
-          Theme
+        <button className="dropbtn">
+          <AiOutlineUser size={"20px"} />
+          <div className="dropdown-content">
+            <p>{email}</p>
+            <div className="dropdown-button-wrapper">
+              <button className="theme-button" onClick={changeTheme}>
+                <BsMoon size={"20px"} style={{ color: "white" }} />
+              </button>
+              <button className="logout-button" onClick={logout}>
+                <IoIosLogOut size={"28px"} style={{ color: "white" }} />
+              </button>
+            </div>
+          </div>
         </button>
       </div>
       <nav className="nav">

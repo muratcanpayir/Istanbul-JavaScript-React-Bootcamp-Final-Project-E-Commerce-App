@@ -4,9 +4,14 @@ import Header from "../../components/Header/Header";
 import useTheme from "../../hooks/useTheme";
 import Footer from "../../components/Footer/Footer";
 
-
 function Home() {
   const { theme } = useTheme();
+  const goTshirtPage = () => {
+    window.location.href = "/tshirts";
+  };
+  const goHatPage = () => {
+    window.location.href = "/hats";
+  };
   return (
     <>
       <Header />
@@ -16,6 +21,7 @@ function Home() {
         }`}
       >
         <div
+          onClick={goTshirtPage}
           className={`categories-card ${
             theme === "light" ? "categories-card-light" : "categories-card-dark"
           }`}
@@ -35,6 +41,7 @@ function Home() {
           </div>
         </div>
         <div
+          onClick={goHatPage}
           className={`categories-card ${
             theme === "light" ? "categories-card-light" : "categories-card-dark"
           }`}
