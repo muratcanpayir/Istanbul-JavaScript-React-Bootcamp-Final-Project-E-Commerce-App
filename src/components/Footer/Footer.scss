@@ -1,7 +1,7 @@
 @import "../../style/variables.scss";
 .footer {
-  position: fixed;
-  left: 0;
+  // position: fixed;
+  // left: 0;
   bottom: 30px;
   width: 100%;
   height: 160px;
@@ -36,9 +36,9 @@
   margin-bottom: 8px;
 }
 .footer-downside {
-  position: fixed;
-  left: 0;
-  bottom: 0;
+  // position: fixed;
+  // left: 0;
+  // bottom: 0;
   width: 100%;
   height: 30px;
   display: flex;

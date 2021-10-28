@@ -3,6 +3,7 @@ import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router";
 import Header from "../../components/Header/Header";
+import Footer from "../../components/Footer/Footer";
 import { getHats } from "../../redux/actions/hatAction";
 import { getHatDetail } from "../../redux/actions/hatDetailAction";
 import REQUEST_STATUS from "../../helpers/constants";
@@ -22,38 +23,43 @@ function Hats() {
       <Header />
       {hats.status === REQUEST_STATUS.PENDING && <div>Loading...</div>}
       {hats.status === REQUEST_STATUS.SUCCESS && (
-        <div
-          className={`product-container ${
-            theme === "light"
-              ? "product-container-light"
-              : "product-container-dark"
-          }`}
-        >
-          {hats.data.map((hat) => (
-            <div
-              className={`product-card ${
-                theme === "light" ? "product-card-light" : "product-card-dark"
-              }`}
-              onClick={() => {
-                dispatch(getHatDetail(hat.id));
-                history.push("hat-details/" + hat.id);
-              }}
-              key={hat.id}
-            >
-              <div className="image">
-                <img src={hat.imageUrl} alt={hat.title} />
-              </div>
+        <>
+          <div
+            className={`product-container ${
+              theme === "light"
+                ? "product-container-light"
+                : "product-container-dark"
+            }`}
+          >
+            {hats.data.map((hat) => (
               <div
-                className={`product-info ${
-                  theme === "light" ? "product-info-light" : "product-info-dark"
+                className={`product-card ${
+                  theme === "light" ? "product-card-light" : "product-card-dark"
                 }`}
+                onClick={() => {
+                  dispatch(getHatDetail(hat.id));
+                  history.push("hat-details/" + hat.id);
+                }}
+                key={hat.id}
               >
-                <div>{hat.title}</div>
-                <div>{hat.price}</div>
+                <div className="image">
+                  <img src={hat.imageUrl} alt={hat.title} />
+                </div>
+                <div
+                  className={`product-info ${
+                    theme === "light"
+                      ? "product-info-light"
+                      : "product-info-dark"
+                  }`}
+                >
+                  <div>{hat.title}</div>
+                  <div>{hat.price}</div>
+                </div>
               </div>
-            </div>
-          ))}
-        </div>
+            ))}
+          </div>
+          <Footer />
+        </>
       )}
     </>
   );

@@ -178,3 +178,50 @@ const getHats=[
     "id": "20"
    },
 ]
+const getSweatshirt=[
+  {
+   "title": "",
+   "imageUrl": "imageUrl 1",
+   "price": "price 1",
+   "color": "color 1",
+   "description": "description 1",
+   "type": "type 1",
+   "id": "1"
+  },
+  {
+   "title": "title 2",
+   "imageUrl": "imageUrl 2",
+   "price": "price 2",
+   "color": "color 2",
+   "description": "description 2",
+   "type": "type 2",
+   "id": "2"
+  },
+  {
+   "title": "title 3",
+   "imageUrl": "imageUrl 3",
+   "price": "price 3",
+   "color": "color 3",
+   "description": "description 3",
+   "type": "type 3",
+   "id": "3"
+  },
+  {
+   "title": "title 4",
+   "imageUrl": "imageUrl 4",
+   "price": "price 4",
+   "color": "color 4",
+   "description": "description 4",
+   "type": "type 4",
+   "id": "4"
+  },
+  {
+   "title": "title 5",
+   "imageUrl": "imageUrl 5",
+   "price": "price 5",
+   "color": "color 5",
+   "description": "description 5",
+   "type": "type 5",
+   "id": "5"
+  }
+ ]

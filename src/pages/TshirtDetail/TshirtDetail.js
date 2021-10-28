@@ -88,6 +88,7 @@ function TshirtDetail() {
                 </div>
               </div>
             )}
+            
           </>
         }
       </div>

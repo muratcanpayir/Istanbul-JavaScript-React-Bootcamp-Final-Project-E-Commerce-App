@@ -1,67 +1,63 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./Home.scss";
 import Header from "../../components/Header/Header";
 import useTheme from "../../hooks/useTheme";
 import Footer from "../../components/Footer/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import { getTshirts } from "../../redux/actions/tshirtAction";
+import REQUEST_STATUS from "../../helpers/constants";
+import { useHistory } from "react-router-dom";
 
 function Home() {
   const { theme } = useTheme();
-  const goTshirtPage = () => {
-    window.location.href = "/tshirts";
-  };
-  const goHatPage = () => {
-    window.location.href = "/hats";
-  };
+  const history = useHistory();
+  const dispatch = useDispatch();
+  useEffect(() => {
+    dispatch(getTshirts());
+  }, [dispatch]);
+  const tshirts = useSelector((state) => state.tshirts);
   return (
     <>
       <Header />
-      <div
-        className={`home-container ${
-          theme === "light" ? "home-container-light" : "home-container-dark"
-        }`}
-      >
-        <div
-          onClick={goTshirtPage}
-          className={`categories-card ${
-            theme === "light" ? "categories-card-light" : "categories-card-dark"
-          }`}
-        >
-          <div className="category-image">
-            <img
-              src="https://firebasestorage.googleapis.com/v0/b/e-commerce-app-78087.appspot.com/o/Goku%20Tee.jpg?alt=media&token=c723a6f9-0d99-4f23-ae50-8e6f08c520db"
-              alt="tshirt-category"
-            />
-          </div>
+      {tshirts.status === REQUEST_STATUS.PENDING && <div>Loading....</div>}
+      {tshirts.status === REQUEST_STATUS.SUCCESS && (
+        <>
           <div
-            className={`category-title ${
-              theme === "light" ? "category-title-light" : "category-title-dark"
+            className={`product-container ${
+              theme === "light"
+                ? "product-container-light"
+                : "product-container-dark"
             }`}
           >
-            <p>T-Shirts</p>
+            {tshirts.data.map((tshirt) => (
+              <div
+                className={`product-card ${
+                  theme === "light" ? "product-card-light" : "product-card-dark"
+                }`}
+                onClick={() => {
+                  history.push("tshirt-details/" + tshirt.id);
+                }}
+                key={tshirt.id}
+              >
+                <div className="image">
+                  <img src={tshirt.imageUrl} alt={tshirt.title} />
+                </div>
+                <div
+                  className={`product-info ${
+                    theme === "light"
+                      ? "product-info-light"
+                      : "product-info-dark"
+                  }`}
+                >
+                  <div>{tshirt.title}</div>
+                  <div>{tshirt.price}</div>
+                </div>
+              </div>
+            ))}
           </div>
-        </div>
-        <div
-          onClick={goHatPage}
-          className={`categories-card ${
-            theme === "light" ? "categories-card-light" : "categories-card-dark"
-          }`}
-        >
-          <div className="category-image">
-            <img
-              src="https://firebasestorage.googleapis.com/v0/b/e-commerce-app-78087.appspot.com/o/hats%2FPalm%20Cap.jpg?alt=media&token=d974913d-4bdc-40f9-af39-e84935c8264a"
-              alt="hat-category"
-            />
-          </div>
-          <div
-            className={`category-title ${
-              theme === "light" ? "category-title-light" : "category-title-dark"
-            }`}
-          >
-            <p>Hats</p>
-          </div>
-        </div>
-      </div>
-      <Footer />
+          <Footer />
+        </>
+      )}
     </>
   );
 }
