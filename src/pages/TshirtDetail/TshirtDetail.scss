@@ -79,6 +79,16 @@
   border-radius: 8px;
   font-weight: 700;
 }
+.add-to-cart-button-disabled{
+  width: 200px;
+  background-color: rgb(190, 124, 0);
+  border: 1px solid black;
+  outline: none;
+  cursor: initial;
+  padding: 8px;
+  border-radius: 8px;
+  font-weight: 700;
+}
 @media screen and (max-width:1550px){
   .tshirt-detail{
     margin: 0 120px;
@@ -104,4 +114,6 @@
   .add-to-cart-button{
     width: 100%;
   }
+  .add-to-cart-button-disabled{
+    width: 100%;}
 }

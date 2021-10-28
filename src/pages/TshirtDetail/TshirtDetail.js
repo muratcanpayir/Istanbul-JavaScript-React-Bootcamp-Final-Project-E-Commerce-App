@@ -77,18 +77,28 @@ function TshirtDetail() {
                   <div className="tshirt-detail-price">
                     Price: <span>{tshirtDetails.data.price} $</span>
                   </div>
-                  <button
-                    className="add-to-cart-button"
-                    onClick={() => {
-                      dispatch(postAddToCart(tshirtDetails.data));
-                    }}
-                  >
-                    Add To Cart!
-                  </button>
+                  {localStorage.getItem("access_token") ? (
+                    <button
+                      className="add-to-cart-button"
+                      onClick={() => {
+                        dispatch(postAddToCart(tshirtDetails.data));
+                      }}
+                    >
+                      Add To Cart!
+                    </button>
+                  ) : (
+                    <button
+                      className="add-to-cart-button-disabled"
+                      onClick={() => {
+                        alert("You need to login to add product!");
+                      }}
+                    >
+                      Add To Cart!
+                    </button>
+                  )}
                 </div>
               </div>
             )}
-            
           </>
         }
       </div>
