@@ -1,28 +1,26 @@
 import React, { useEffect } from "react";
-import { useSelector } from "react-redux";
-import { useDispatch } from "react-redux";
-import { useHistory } from "react-router";
+import "./Home.scss";
 import Header from "../../components/Header/Header";
-import Footer from "../../components/Footer/Footer";
-import { getHats } from "../../redux/actions/hatAction";
-import { getHatDetail } from "../../redux/actions/hatDetailAction";
-import REQUEST_STATUS from "../../helpers/constants";
-import "../Tshirts/Tshirts.scss";
 import useTheme from "../../hooks/useTheme";
+import Footer from "../../components/Footer/Footer";
+import { useDispatch, useSelector } from "react-redux";
+import { getTshirts } from "../../redux/actions/tshirtAction";
+import REQUEST_STATUS from "../../helpers/constants";
+import { useHistory } from "react-router-dom";
 
-function Hats() {
+function Home() {
+  const { theme } = useTheme();
   const history = useHistory();
   const dispatch = useDispatch();
-  const { theme } = useTheme();
   useEffect(() => {
-    dispatch(getHats());
+    dispatch(getTshirts());
   }, [dispatch]);
-  const hats = useSelector((state) => state.hats);
+  const tshirts = useSelector((state) => state.tshirts);
   return (
     <>
       <Header />
-      {hats.status === REQUEST_STATUS.PENDING && <div>Loading...</div>}
-      {hats.status === REQUEST_STATUS.SUCCESS && (
+      {tshirts.status === REQUEST_STATUS.PENDING && <div>Loading....</div>}
+      {tshirts.status === REQUEST_STATUS.SUCCESS && (
         <>
           <div
             className={`product-container ${
@@ -31,19 +29,18 @@ function Hats() {
                 : "product-container-dark"
             }`}
           >
-            {hats.data.map((hat) => (
+            {tshirts.data.map((tshirt) => (
               <div
                 className={`product-card ${
                   theme === "light" ? "product-card-light" : "product-card-dark"
                 }`}
                 onClick={() => {
-                  dispatch(getHatDetail(hat.id));
-                  history.push("hat-details/" + hat.id);
+                  history.push("tshirt-details/" + tshirt.id);
                 }}
-                key={hat.id}
+                key={tshirt.id}
               >
                 <div className="image">
-                  <img src={hat.imageUrl} alt={hat.title} />
+                  <img src={tshirt.imageUrl} alt={tshirt.title} />
                 </div>
                 <div
                   className={`product-info ${
@@ -52,8 +49,8 @@ function Hats() {
                       : "product-info-dark"
                   }`}
                 >
-                  <div>{hat.title}</div>
-                  <div>{hat.price}</div>
+                  <div>{tshirt.title}</div>
+                  <div>{tshirt.price}</div>
                 </div>
               </div>
             ))}
@@ -65,4 +62,4 @@ function Hats() {
   );
 }
 
-export default Hats;
+export default Home;
