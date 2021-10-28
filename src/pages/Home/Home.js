@@ -18,6 +18,17 @@ function Home() {
             <p>T-Shirts</p>
           </div>
         </div>
+        <div className="categories-card">
+          <div className="category-image">
+            <img
+              src="https://firebasestorage.googleapis.com/v0/b/e-commerce-app-78087.appspot.com/o/hats%2FPalm%20Cap.jpg?alt=media&token=d974913d-4bdc-40f9-af39-e84935c8264a"
+              alt="hat-category"
+            />
+          </div>
+          <div className="category-title">
+            <p>Hats</p>
+          </div>
+        </div>
       </div>
     </>
   );
