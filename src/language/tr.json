@@ -1,10 +1,18 @@
 {
-  "signup":{
-    "signup-title":"Kayıt ol",
-    "signup-desc":"Harika ürünler için hemen kayıt olun. Zaten bir hesabınız var mı?",
-    "signup-desc-link":"Giriş Yap!",
-    "signup-email-input-placeholder":"E-Posta",
-    "signup-password-input-placeholder":"Şifre",
-    "signup-button":"GİRİŞ YAP"
+  "signup": {
+    "signup-title": "Kayıt ol",
+    "signup-desc": "Harika ürünler için hemen kayıt olun. Zaten bir hesabınız var mı?",
+    "signup-desc-link": "Giriş Yap!",
+    "signup-email-input-placeholder": "E-Posta",
+    "signup-password-input-placeholder": "Şifre",
+    "signup-button": "KAYIT OL"
+  },
+  "login": {
+    "login-title": "Giriş Yap",
+    "login-desc": "Bu formu kullanarak Web Sitemize giriş yapabilirsiniz. Hesabınız yok mu?",
+    "login-desc-link": "Buradan Kayıt Olun!",
+    "login-email-input-placeholder": "E-Posta",
+    "login-password-input-placeholder": "Şifre",
+    "login-button": "GİRİŞ YAP"
   }
 }

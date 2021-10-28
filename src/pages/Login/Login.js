@@ -7,9 +7,10 @@ import { postLogin } from "../../redux/actions/loginAction";
 import { useForm } from "react-hook-form";
 import "../Signup/Signup.scss";
 import "./Login.scss";
-import useTheme from "../../hooks/useTheme";
+import { useTranslation } from "react-i18next";
 
 function Signup() {
+  const { t: translate } = useTranslation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const history = useHistory();
@@ -49,7 +50,7 @@ function Signup() {
               theme === "light" ? "signup-title-light" : "signup-title-dark"
             }`}
           >
-            Login
+            {translate("login.login-title")}
           </p>
           <p
             className={`signup-go-login ${
@@ -58,20 +59,20 @@ function Signup() {
                 : "signup-go-login-dark"
             }`}
           >
-            Login to our website to use this form. If you don't have an account{" "}
+            {translate("login.login-desc")}{" "}
             <span
               onClick={() => {
                 history.push("/signup");
               }}
             >
-              Sign Up Here!
+              {translate("login.login-desc-link")}
             </span>
           </p>
           <input
             className={`input-light ${
               theme === "light" ? "input-light-light" : "input-light-dark"
             }`}
-            placeholder="E-Mail"
+            placeholder={translate("login.login-email-input-placeholder")}
             id={errors.email && "login-email-error"}
             {...register("email", {
               required: true,
@@ -83,7 +84,7 @@ function Signup() {
             className={`input-light ${
               theme === "light" ? "input-light-light" : "input-light-dark"
             }`}
-            placeholder="Password"
+            placeholder={translate("login.login-password-input-placeholder")}
             type="password"
             id={errors.password && "login-password-error"}
             {...register("password", {
@@ -94,7 +95,7 @@ function Signup() {
             onChange={(e) => setPassword(e.target.value)}
           />
           <button className="button-light" id="signup-button">
-            LOGIN
+            {translate("login.login-button")}
           </button>
         </form>
       </div>
