@@ -7,7 +7,7 @@
   background-color: #2c2c2c;
 }
 .header-dark {
-  background-color: #e2e2e2;
+  background-color: #1b1b1b;
 }
 .nav {
   margin: 0 220px;
@@ -25,7 +25,7 @@
   color: aliceblue;
 }
 .header-title-dark {
-  color: #2c2c2c;
+  color: aliceblue;
 }
 .menu {
   display: flex;
@@ -53,9 +53,9 @@
     padding: 10px 30px;
     margin-right: 10px;
     text-decoration: none;
-    color: #2c2c2c;
+    color: whitesmoke;
     &:hover {
-      background-color: whitesmoke;
+      background-color: rgba(255, 255, 255, 0.1);
       border-radius: 8px;
       outline: 1px solid rgba(255, 255, 255, 0.2);
     }
@@ -73,10 +73,10 @@
   color: white;
 }
 .user-dark {
-  color: $text-color-1;
+  color: white;
 }
 .dropbtn {
-  background-color: #2c2c2c;
+  background-color: orange;
   color: white;
   padding: 2px;
   border: none;
