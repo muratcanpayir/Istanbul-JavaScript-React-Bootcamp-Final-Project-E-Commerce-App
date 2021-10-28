@@ -31,7 +31,7 @@ function Footer() {
       <footer className={`footer-downside ${theme==="light"?"footer-downside-light":"footer-downside-dark"}`}>
         Created by Muratcan Payir{" "}
         <a href="https://www.linkedin.com/in/muratcanpayir/" target="_blank">
-          <FaLinkedin size={"18px"} />
+          {" "}<FaLinkedin size={"18px"} />
         </a>
         <a href="https://github.com/muratcanpayir" target="_blank">
           <FaGithub size={"18px"} />

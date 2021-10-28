@@ -78,7 +78,7 @@
 .dropbtn {
   background-color: #2c2c2c;
   color: white;
-  padding: 8px;
+  padding: 2px;
   border: none;
   display: flex;
   p {
@@ -96,7 +96,7 @@
   border-radius: 8px;
   display: none;
   position: absolute;
-  top: 40px;
+  top: 28px;
   right: 0;
   background-color: $bg-color-dark;
   min-width: 160px;
@@ -151,8 +151,6 @@
   flex-direction: column;
   align-items: flex-end;
   float: right;
-  margin-top: 4px;
-  margin-right: 8px;
   button {
     border: none;
     outline: none;
@@ -197,7 +195,7 @@
     flex-direction: column;
     align-items: flex-end;
     float: right;
-    margin-right: 4px;
+    
   }
   .menu {
     display: none;
@@ -217,15 +215,15 @@
     border-radius: 8px;
   }
   .dropdown-content {
-    top: 36px;
+    top: 22px;
   }
   .dropdown-content-mobile {
     border: 1px solid $light-placeholder-color;
     border-radius: 8px;
     display: none;
     position: absolute;
-    top: 56px;
-    right: 36px;
+    top: 50px;
+    right: 22px;
     background-color: $bg-color-dark;
     width: 100px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);

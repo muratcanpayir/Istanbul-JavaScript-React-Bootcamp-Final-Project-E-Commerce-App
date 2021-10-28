@@ -6,3 +6,11 @@
     object-fit: cover;
   }
 }
+@media screen and (max-width: 550px) {
+  .hat-detail-image {
+    margin-right: 0;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+  }
+}
