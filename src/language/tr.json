@@ -1,3 +1,10 @@
 {
-  
+  "signup":{
+    "signup-title":"Kayıt ol",
+    "signup-desc":"Harika ürünler için hemen kayıt olun. Zaten bir hesabınız var mı?",
+    "signup-desc-link":"Giriş Yap!",
+    "signup-email-input-placeholder":"E-Posta",
+    "signup-password-input-placeholder":"Şifre",
+    "signup-button":"GİRİŞ YAP"
+  }
 }

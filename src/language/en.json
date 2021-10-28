@@ -1,3 +1,10 @@
 {
-  
+  "signup":{
+    "signup-title":"Sign Up",
+    "signup-desc":"Create a free account to buy amazing product. Already have an account?",
+    "signup-desc-link":"Login Here!",
+    "signup-email-input-placeholder":"E-Mail",
+    "signup-password-input-placeholder":"Password",
+    "signup-button":"SIGN UP"
+  }
 }
