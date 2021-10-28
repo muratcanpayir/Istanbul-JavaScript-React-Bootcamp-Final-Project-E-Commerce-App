@@ -6,9 +6,10 @@ import { useDispatch } from "react-redux";
 import { postLogin } from "../../redux/actions/loginAction";
 import { useSelector } from "react-redux";
 import REQUEST_STATUS from "../../helpers/constants";
-import useTheme from "../../hooks/useTheme";
+import { useTranslation } from "react-i18next";
 
 function Signup() {
+  const { t: translate } = useTranslation();
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -47,7 +48,7 @@ function Signup() {
               theme === "light" ? "signup-title-light" : "signup-title-dark"
             }`}
           >
-            Sign Up
+            {translate("signup.signup-title")}
           </p>
           <p
             className={`signup-go-login ${
@@ -56,21 +57,20 @@ function Signup() {
                 : "signup-go-login-dark"
             }`}
           >
-            Create a free account to buy amazing product. Already have an
-            account?{" "}
+            {translate("signup.signup-desc")}{" "}
             <span
               onClick={() => {
                 history.push("/login");
               }}
             >
-              Login Here!
+              {translate("signup.signup-desc-link")}
             </span>
           </p>
           <input
             className={`input-light ${
               theme === "light" ? "input-light-light" : "input-light-dark"
             }`}
-            placeholder="E-Mail"
+            placeholder={translate("signup.signup-email-input-placeholder")}
             id={errors.email && "login-password-error"}
             {...register("email", {
               required: true,
@@ -83,7 +83,7 @@ function Signup() {
             className={`input-light ${
               theme === "light" ? "input-light-light" : "input-light-dark"
             }`}
-            placeholder="Password"
+            placeholder={translate("signup.signup-password-input-placeholder")}
             id={errors.password && "login-password-error"}
             {...register("password", {
               required: true,
@@ -93,7 +93,7 @@ function Signup() {
             onChange={(e) => setPassword(e.target.value)}
           />
           <button className="button-light" id="signup-button">
-            SIGN UP
+            {translate("signup.signup-button")}
           </button>
         </form>
       </div>
