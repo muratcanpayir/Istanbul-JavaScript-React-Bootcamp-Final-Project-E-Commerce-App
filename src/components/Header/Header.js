@@ -119,7 +119,7 @@ function Header() {
                 <div className="mobile-menu-price">
                   {" "}
                   <Link to="/cart">
-                    <BsCart4 size={"18px"} /> {totalPrice.toFixed(2)} $
+                    <BsCart4 size={"18px"} /> {totalPrice.toFixed(0)} $
                   </Link>
                 </div>
               )}
