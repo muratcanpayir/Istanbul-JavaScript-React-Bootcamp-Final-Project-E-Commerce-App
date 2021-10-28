@@ -12,6 +12,7 @@ import Login from "../pages/Login/Login";
 import TshirtDetail from "../pages/TshirtDetail/TshirtDetail";
 import HatDetail from "../pages/HatDetail/HatDetail";
 import Cart from "../pages/Cart/Cart";
+import Home from "../pages/Home/Home";
 
 function Routes() {
   const [totalPrice, setTotalPrice] = useState(0);
@@ -41,6 +42,9 @@ function Routes() {
           <Route path="/hat-details/:id">
             <HatDetail />
           </Route>
+          <Route exact path="/">
+            <Home />
+          </Route>
         </Switch>
       ) : (
         <Switch>
@@ -61,6 +65,9 @@ function Routes() {
           </Route>
           <Route path="/hat-details/:id">
             <HatDetail />
+          </Route>
+          <Route exact path="/">
+            <Home />
           </Route>
         </Switch>
       )}
