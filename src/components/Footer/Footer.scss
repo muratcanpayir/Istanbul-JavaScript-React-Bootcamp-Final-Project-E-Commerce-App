@@ -64,3 +64,23 @@
     color: $white;
   }
 }
+@media screen and (max-width:1550px){
+  .footer{
+    padding: 0 120px;
+  }
+}
+@media screen and (max-width:1050px){
+  .footer{
+    padding: 0 60px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .footer{
+    padding: 0 30px;
+  }
+}
+@media screen and (max-width: 550px) {
+  .footer{
+    padding: 0 10px;
+  }
+}
