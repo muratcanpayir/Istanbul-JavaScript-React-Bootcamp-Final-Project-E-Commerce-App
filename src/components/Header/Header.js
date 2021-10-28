@@ -52,39 +52,38 @@ function Header() {
       localStorage.setItem("theme", "light");
     }
   };
-  const goToLogin=()=>{
-    window.location.href="/login";
-  }
+  const goToLogin = () => {
+    window.location.href = "/login";
+  };
   return (
     <header
       className={`header ${theme === "light" ? "header-light" : "header-dark"}`}
     >
-      {
-        localStorage.getItem("access_token") ?
-        <div className={`user ${theme === "light" ? "user-light" : "user-dark"}`}>
-        <button className="dropbtn">
-          <AiOutlineUser size={"20px"} />
-          <div className="dropdown-content">
-            <p>{email}</p>
-            <div className="dropdown-button-wrapper">
-              <button className="theme-button" onClick={changeTheme}>
-                <BsMoon size={"20px"} style={{ color: "white" }} />
-              </button>
-              <button className="logout-button" onClick={logout}>
-                <IoIosLogOut size={"28px"} style={{ color: "white" }} />
-              </button>
+      {localStorage.getItem("access_token") ? (
+        <div
+          className={`user ${theme === "light" ? "user-light" : "user-dark"}`}
+        >
+          <button className="dropbtn">
+            <AiOutlineUser size={"20px"} />
+            <div className="dropdown-content">
+              <p>{email}</p>
+              <div className="dropdown-button-wrapper">
+                <button className="theme-button" onClick={changeTheme}>
+                  <BsMoon size={"20px"} style={{ color: "white" }} />
+                </button>
+                <button className="logout-button" onClick={logout}>
+                  <IoIosLogOut size={"28px"} style={{ color: "white" }} />
+                </button>
+              </div>
             </div>
-          </div>
-        </button>
-      </div>
-      :
-      <div className="header-login-button">
-        <button onClick={goToLogin}>
-          Login
-        </button>
-      </div>
-      }
-      
+          </button>
+        </div>
+      ) : (
+        <div className="header-login-button">
+          <button onClick={goToLogin}>Login</button>
+        </div>
+      )}
+
       <nav className="nav">
         <p
           onClick={() => {
@@ -99,11 +98,33 @@ function Header() {
         <div className={theme === "light" ? "menu" : "menu-dark"}>
           <Link to="/tshirts">T-Shirt</Link>
           <Link to="/hats">Hat</Link>
-          {
-            localStorage.getItem("access_token") &&
-            <Link to="/cart"><BsCart4 size={"18px"} /> {totalPrice.toFixed(2)} $</Link>
-          }
-          
+          {localStorage.getItem("access_token") && (
+            <Link to="/cart">
+              <BsCart4 size={"18px"} /> {totalPrice.toFixed(2)} $
+            </Link>
+          )}
+        </div>
+        <div className={`mobile-menu`}>
+          <button className="dropbtn">
+            Categories
+            <div className="dropdown-content-mobile">
+              <div className="mobile-menu-tshirt">
+                {" "}
+                <Link to="/tshirts">T-Shirt</Link>
+              </div>
+              <div className="mobile-menu-hat">
+                <Link to="/hats">Hat</Link>
+              </div>
+              {localStorage.getItem("access_token") && (
+                <div className="mobile-menu-price">
+                  {" "}
+                  <Link to="/cart">
+                    <BsCart4 size={"18px"} /> {totalPrice.toFixed(0)} $
+                  </Link>
+                </div>
+              )}
+            </div>
+          </button>
         </div>
       </nav>
     </header>

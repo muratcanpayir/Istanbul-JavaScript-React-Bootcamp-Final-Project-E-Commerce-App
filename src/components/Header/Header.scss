@@ -153,7 +153,7 @@
   float: right;
   margin-top: 4px;
   margin-right: 8px;
-  button{
+  button {
     border: none;
     outline: none;
     padding: 8px;
@@ -161,9 +161,107 @@
     background-color: #2c2c2c;
     color: $bg-color-light;
     cursor: pointer;
-    &:hover{
+    &:hover {
       background-color: rgba(255, 255, 255, 0.1);
       outline: 1px solid rgba(255, 255, 255, 0.2);
+    }
+  }
+}
+.mobile-menu {
+  display: none;
+}
+
+@media screen and (max-width: 1550px) {
+  .nav {
+    margin: 0 120px;
+  }
+}
+@media screen and (max-width: 1050px) {
+  .nav {
+    margin: 0 60px;
+  }
+}
+@media screen and (max-width: 750px) {
+  .nav {
+    margin: 0 30px;
+  }
+  .header-title {
+    font-size: 18px;
+  }
+  .user {
+    margin-top: 0;
+    margin-right: 0;
+  }
+  .mobile-menu {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    float: right;
+    margin-right: 4px;
+  }
+  .menu {
+    display: none;
+  }
+  .menu-dark {
+    display: none;
+  }
+  .mobile-menu:hover .dropdown-content {
+    display: block;
+  }
+  .mobile-menu:hover .dropdown-content-mobile {
+    display: block;
+  }
+  .mobile-menu:hover .dropbtn {
+    background-color: rgba(255, 255, 255, 0.1);
+    outline: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 8px;
+  }
+  .dropdown-content {
+    top: 36px;
+  }
+  .dropdown-content-mobile {
+    border: 1px solid $light-placeholder-color;
+    border-radius: 8px;
+    display: none;
+    position: absolute;
+    top: 56px;
+    right: 36px;
+    background-color: $bg-color-dark;
+    width: 100px;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+  }
+  .dropbtn {
+    div {
+      padding: 8px;
+      a {
+        color: white;
+        text-decoration: none;
+      }
+    }
+  }
+  .mobile-menu-tshirt {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+  .mobile-menu-hat {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
+    }
+  }
+  .mobile-menu-price {
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    &:hover {
+      background-color: rgba(255, 255, 255, 0.1);
     }
   }
 }

@@ -4,7 +4,6 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  padding: 0 220px;
 }
 .signup-container-light {
   background-color: $bg-color-light;
@@ -19,6 +18,7 @@
   justify-content: center;
   align-items: center;
   padding: 40px 100px;
+  border-radius: 8px;
   form {
     width: 100%;
     height: auto;
@@ -50,7 +50,7 @@
 }
 .signup-go-login {
   font-size: 14px;
-  font-weight: 400px;
+  font-weight: 400;
   margin-bottom: 24px;
   span {
     font-size: 14px;
@@ -132,4 +132,21 @@
   margin-top: 24px;
   display: flex;
   justify-content: flex-end;
+}
+@media screen and (max-width:750px) {
+  .signup-container{
+    padding-top: 10px;
+  }
+  .form-container{
+    width: 355px;
+    height: 400px;
+    padding: 20px;
+  }
+  .signup-title {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  .input-light{
+    width: 320px;
+  }
 }
