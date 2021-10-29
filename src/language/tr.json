@@ -30,5 +30,8 @@
   },
   "detail":{
     "button":"Sepete Ekle!"
+  },
+  "cart":{
+    "subtotal":"Toplam"
   }
 }
