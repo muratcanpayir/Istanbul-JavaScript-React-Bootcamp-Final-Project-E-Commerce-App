@@ -11,8 +11,10 @@ import {
 import "./TshirtDetail.scss";
 import Header from "../../components/Header/Header";
 import useTheme from "../../hooks/useTheme";
+import {useTranslation} from "react-i18next";
 
 function TshirtDetail() {
+  const {t:translate}=useTranslation();
   const { id } = useParams();
   const dispatch = useDispatch();
   const { theme } = useTheme();
@@ -84,7 +86,7 @@ function TshirtDetail() {
                         dispatch(postAddToCart(tshirtDetails.data));
                       }}
                     >
-                      Add To Cart!
+                      {translate("detail.button")}
                     </button>
                   ) : (
                     <button
@@ -93,7 +95,7 @@ function TshirtDetail() {
                         alert("You need to login to add product!");
                       }}
                     >
-                      Add To Cart!
+                      {translate("detail.button")}
                     </button>
                   )}
                 </div>

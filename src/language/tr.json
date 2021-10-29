@@ -27,5 +27,8 @@
     "terms": "Şartlar",
     "return": "İade Politikası",
     "contact": "Bize Ulaşın"
+  },
+  "detail":{
+    "button":"Sepete Ekle!"
   }
 }

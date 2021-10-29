@@ -7,9 +7,11 @@ import REQUEST_STATUS from "../../helpers/constants";
 import useTheme from "../../hooks/useTheme";
 import { postAddToCart } from "../../redux/actions/addToCartAction";
 import { getHatDetail } from "../../redux/actions/hatDetailAction";
+import {useTranslation} from "react-i18next";
 import "./HatDetail.scss";
 
 function HatDetail() {
+  const {t:translate}=useTranslation();
   const { id } = useParams();
   const dispatch = useDispatch();
   const { theme } = useTheme();
@@ -80,7 +82,7 @@ function HatDetail() {
                         dispatch(postAddToCart(hatDetails.data));
                       }}
                     >
-                      Add To Cart!
+                      {translate("detail.button")}
                     </button>
                   ) : (
                     <button
@@ -89,7 +91,7 @@ function HatDetail() {
                         alert("You need to login to add product!");
                       }}
                     >
-                      Add To Cart!
+                      {translate("detail.button")}
                     </button>
                   )}
                 </div>

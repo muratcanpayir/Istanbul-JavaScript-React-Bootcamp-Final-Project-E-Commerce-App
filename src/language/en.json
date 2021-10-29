@@ -27,5 +27,8 @@
     "terms":"Terms & Conditions",
     "return":"Return Policy",
     "contact":"Contact Us"
+  },
+  "detail":{
+    "button":"Add To Cart!"
   }
 }
