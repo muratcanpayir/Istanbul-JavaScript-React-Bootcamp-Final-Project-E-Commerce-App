@@ -20,5 +20,12 @@
     "hat":"Hat",
     "categories":"Categories",
     "login":"Login"
+  },
+  "footer":{
+    "faq":"FAQ",
+    "privacy":"Privacy",
+    "terms":"Terms & Conditions",
+    "return":"Return Policy",
+    "contact":"Contact Us"
   }
 }

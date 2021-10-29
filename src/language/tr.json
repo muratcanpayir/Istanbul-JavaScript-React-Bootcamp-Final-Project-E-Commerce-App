@@ -15,10 +15,17 @@
     "login-password-input-placeholder": "Şifre",
     "login-button": "GİRİŞ YAP"
   },
-  "header":{
-    "tshirt":"Tişört",
-    "hat":"Şapka",
-    "categories":"Kategoriler",
-    "login":"Giriş Yap"
+  "header": {
+    "tshirt": "Tişört",
+    "hat": "Şapka",
+    "categories": "Kategoriler",
+    "login": "Giriş Yap"
+  },
+  "footer": {
+    "faq": "SSS",
+    "privacy": "Gizlilik",
+    "terms": "Şartlar",
+    "return": "İade Politikası",
+    "contact": "Bize Ulaşın"
   }
 }
