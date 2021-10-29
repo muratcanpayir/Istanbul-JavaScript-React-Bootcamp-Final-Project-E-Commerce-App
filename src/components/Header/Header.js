@@ -123,7 +123,7 @@ function Header({ i18n }) {
             theme === "light" ? "header-title-light" : "header-title-dark"
           }`}
         >
-          E-Ticaret Sitesi
+          Click & Buy
         </p>
         <div className={theme === "light" ? "menu" : "menu-dark"}>
           <Link to="/tshirts">{translate("header.tshirt")}</Link>
