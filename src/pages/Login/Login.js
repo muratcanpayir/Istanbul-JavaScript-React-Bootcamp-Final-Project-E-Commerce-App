@@ -7,9 +7,9 @@ import { postLogin } from "../../redux/actions/loginAction";
 import { useForm } from "react-hook-form";
 import "../Signup/Signup.scss";
 import "./Login.scss";
-import { useTranslation } from "react-i18next";
+import { useTranslation, withTranslation } from "react-i18next";
 
-function Signup() {
+function Signup({ i18n }) {
   const { t: translate } = useTranslation();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -17,7 +17,15 @@ function Signup() {
   const theme = localStorage.getItem("theme");
   const dispatch = useDispatch();
   const token = useSelector((state) => state.login);
-  console.log(token.data);
+  const handleChangeLanguage = (lang) => {
+    i18n.changeLanguage(lang);
+  };
+  const trLang = () => {
+    handleChangeLanguage("tr");
+  };
+  const enLang = () => {
+    handleChangeLanguage("en");
+  };
   const {
     register,
     handleSubmit,
@@ -98,9 +106,13 @@ function Signup() {
             {translate("login.login-button")}
           </button>
         </form>
+        <div className="signup-lang-buttons">
+          <button onClick={trLang} className={`signup-lang-buttons-tr ${theme==="light"?"signup-lang-buttons-tr-light":"signup-lang-buttons-tr-dark"}`}>tr</button>
+          <button onClick={enLang} className={`signup-lang-buttons-en ${theme==="light"?"signup-lang-buttons-en-light":"signup-lang-buttons-en-dark"}`}>en</button>
+        </div>
       </div>
     </div>
   );
 }
 
-export default Signup;
+export default withTranslation()(Signup);
