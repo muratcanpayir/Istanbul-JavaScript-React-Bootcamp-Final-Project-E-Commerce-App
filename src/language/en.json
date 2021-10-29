@@ -33,5 +33,9 @@
   },
   "cart":{
     "subtotal":"Subtotal"
+  },
+  "toastify":{
+    "added":"Added To Cart Succesfully!",
+    "login":"You Need to Login to Add Product!"
   }
 }

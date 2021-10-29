@@ -33,5 +33,9 @@
   },
   "cart":{
     "subtotal":"Toplam"
+  },
+  "toastify":{
+    "added":"Sepete Eklendi!",
+    "login":"Ürün eklemek için giriş yapmalısınız!"
   }
 }

@@ -29,14 +29,14 @@ function TshirtDetail() {
   useEffect(() => {
     if (addToCart.status === REQUEST_STATUS.SUCCESS) {
       dispatch(resetAddToCart()); 
-      toast.success("Added To Cart!", {
+      toast.success(translate("toastify.added"), {
         autoClose: 3000,
         theme:"colored"
       });
     }
   }, [addToCart]);
   const needLogin=()=>{
-    toast.error("You need to login to add product!", {
+    toast.error(translate("toastify.login"), {
       autoClose: 3000,
       theme:"colored"
     });
