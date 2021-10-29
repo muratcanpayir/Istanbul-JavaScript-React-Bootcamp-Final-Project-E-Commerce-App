@@ -5,9 +5,11 @@ import { useParams } from "react-router";
 import Header from "../../components/Header/Header";
 import REQUEST_STATUS from "../../helpers/constants";
 import useTheme from "../../hooks/useTheme";
-import { postAddToCart } from "../../redux/actions/addToCartAction";
+import { postAddToCart, resetAddToCart } from "../../redux/actions/addToCartAction";
 import { getHatDetail } from "../../redux/actions/hatDetailAction";
 import {useTranslation} from "react-i18next";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 import "./HatDetail.scss";
 
 function HatDetail() {
@@ -23,9 +25,19 @@ function HatDetail() {
   const addToCart = useSelector((state) => state.addToCart);
   useEffect(() => {
     if (addToCart.status === REQUEST_STATUS.SUCCESS) {
-      alert("added to cart");
+      dispatch(resetAddToCart());
+      toast.success("Added To Cart!", {
+        autoClose: 3000,
+        theme:"colored"
+      });
     }
   }, [addToCart]);
+  const needLogin=()=>{
+    toast.error("You need to login to add product", {
+      autoClose: 3000,
+      theme:"colored"
+    });
+  }
   return (
     <>
       <Header />
@@ -76,6 +88,7 @@ function HatDetail() {
                     Price: <span>{hatDetails.data.price} $</span>
                   </div>
                   {localStorage.getItem("access_token") ? (
+                    <>
                     <button
                       className="add-to-cart-button"
                       onClick={() => {
@@ -84,15 +97,18 @@ function HatDetail() {
                     >
                       {translate("detail.button")}
                     </button>
+                    <ToastContainer />
+                    </>
                   ) : (
+                    <>
                     <button
                       className="add-to-cart-button-disabled"
-                      onClick={() => {
-                        alert("You need to login to add product!");
-                      }}
+                      onClick={needLogin}
                     >
                       {translate("detail.button")}
                     </button>
+                    <ToastContainer />
+                    </>
                   )}
                 </div>
               </div>
