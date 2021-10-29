@@ -1,0 +1,37 @@
+{
+  "signup": {
+    "signup-title": "Sign Up",
+    "signup-desc": "Create a free account to buy amazing product. Already have an account?",
+    "signup-desc-link": "Login Here!",
+    "signup-email-input-placeholder": "E-Mail",
+    "signup-password-input-placeholder": "Password",
+    "signup-button": "SIGN UP"
+  },
+  "login": {
+    "login-title": "Login",
+    "login-desc": "Login to our website with use this form. If you don't have an account?",
+    "login-desc-link": "Sign Up Here!",
+    "login-email-input-placeholder": "E-Mail",
+    "login-password-input-placeholder": "Password",
+    "login-button": "LOGIN"
+  },
+  "header":{
+    "tshirt":"T-Shirt",
+    "hat":"Hat",
+    "categories":"Categories",
+    "login":"Login"
+  },
+  "footer":{
+    "faq":"FAQ",
+    "privacy":"Privacy",
+    "terms":"Terms & Conditions",
+    "return":"Return Policy",
+    "contact":"Contact Us"
+  },
+  "detail":{
+    "button":"Add To Cart!"
+  },
+  "cart":{
+    "subtotal":"Subtotal"
+  }
+}

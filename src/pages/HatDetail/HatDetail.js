@@ -7,9 +7,11 @@ import REQUEST_STATUS from "../../helpers/constants";
 import useTheme from "../../hooks/useTheme";
 import { postAddToCart } from "../../redux/actions/addToCartAction";
 import { getHatDetail } from "../../redux/actions/hatDetailAction";
+import {useTranslation} from "react-i18next";
 import "./HatDetail.scss";
 
 function HatDetail() {
+  const {t:translate}=useTranslation();
   const { id } = useParams();
   const dispatch = useDispatch();
   const { theme } = useTheme();
@@ -73,14 +75,25 @@ function HatDetail() {
                   <div className="tshirt-detail-price">
                     Price: <span>{hatDetails.data.price} $</span>
                   </div>
-                  <button
-                    className="add-to-cart-button"
-                    onClick={() => {
-                      dispatch(postAddToCart(hatDetails.data));
-                    }}
-                  >
-                    Add To Cart!
-                  </button>
+                  {localStorage.getItem("access_token") ? (
+                    <button
+                      className="add-to-cart-button"
+                      onClick={() => {
+                        dispatch(postAddToCart(hatDetails.data));
+                      }}
+                    >
+                      {translate("detail.button")}
+                    </button>
+                  ) : (
+                    <button
+                      className="add-to-cart-button-disabled"
+                      onClick={() => {
+                        alert("You need to login to add product!");
+                      }}
+                    >
+                      {translate("detail.button")}
+                    </button>
+                  )}
                 </div>
               </div>
             )}

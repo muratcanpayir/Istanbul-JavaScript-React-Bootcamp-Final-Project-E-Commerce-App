@@ -1,0 +1,37 @@
+{
+  "signup": {
+    "signup-title": "Kayıt ol",
+    "signup-desc": "Harika ürünler için hemen kayıt olun. Zaten bir hesabınız var mı?",
+    "signup-desc-link": "Giriş Yap!",
+    "signup-email-input-placeholder": "E-Posta",
+    "signup-password-input-placeholder": "Şifre",
+    "signup-button": "KAYIT OL"
+  },
+  "login": {
+    "login-title": "Giriş Yap",
+    "login-desc": "Bu formu kullanarak Web Sitemize giriş yapabilirsiniz. Hesabınız yok mu?",
+    "login-desc-link": "Buradan Kayıt Olun!",
+    "login-email-input-placeholder": "E-Posta",
+    "login-password-input-placeholder": "Şifre",
+    "login-button": "GİRİŞ YAP"
+  },
+  "header": {
+    "tshirt": "Tişört",
+    "hat": "Şapka",
+    "categories": "Kategoriler",
+    "login": "Giriş Yap"
+  },
+  "footer": {
+    "faq": "SSS",
+    "privacy": "Gizlilik",
+    "terms": "Şartlar",
+    "return": "İade Politikası",
+    "contact": "Bize Ulaşın"
+  },
+  "detail":{
+    "button":"Sepete Ekle!"
+  },
+  "cart":{
+    "subtotal":"Toplam"
+  }
+}

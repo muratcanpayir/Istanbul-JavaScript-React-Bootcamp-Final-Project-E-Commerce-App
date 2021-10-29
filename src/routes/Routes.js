@@ -14,7 +14,7 @@ import HatDetail from "../pages/HatDetail/HatDetail";
 import Cart from "../pages/Cart/Cart";
 import Home from "../pages/Home/Home";
 
-function Routes() {
+function Routes({trLang,enLang}) {
   const [totalPrice, setTotalPrice] = useState(0);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {

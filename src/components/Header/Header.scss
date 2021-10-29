@@ -7,7 +7,7 @@
   background-color: #2c2c2c;
 }
 .header-dark {
-  background-color: #e2e2e2;
+  background-color: #1b1b1b;
 }
 .nav {
   margin: 0 220px;
@@ -25,7 +25,7 @@
   color: aliceblue;
 }
 .header-title-dark {
-  color: #2c2c2c;
+  color: aliceblue;
 }
 .menu {
   display: flex;
@@ -53,9 +53,9 @@
     padding: 10px 30px;
     margin-right: 10px;
     text-decoration: none;
-    color: #2c2c2c;
+    color: whitesmoke;
     &:hover {
-      background-color: whitesmoke;
+      background-color: rgba(255, 255, 255, 0.1);
       border-radius: 8px;
       outline: 1px solid rgba(255, 255, 255, 0.2);
     }
@@ -73,17 +73,16 @@
   color: white;
 }
 .user-dark {
-  color: $text-color-1;
+  color: white;
 }
 .dropbtn {
-  background-color: #2c2c2c;
+  background-color: orange;
   color: white;
-  padding: 8px;
+  padding: 2px;
   border: none;
   display: flex;
   p {
     padding: 8px;
-
     border-bottom: 1px solid #3a3a3a;
   }
 }
@@ -92,13 +91,13 @@
   flex-direction: column;
 }
 .dropdown-content {
-  border: 1px solid $light-placeholder-color;
-  border-radius: 8px;
+  // border: 1px solid $light-placeholder-color;
+  // border-radius: 8px;
   display: none;
   position: absolute;
-  top: 40px;
-  right: 0;
-  background-color: $bg-color-dark;
+  top: 28px;
+  right:6px;
+  background-color: #333333;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
   z-index: 1;
@@ -116,11 +115,16 @@
   display: block;
 }
 .user:hover .dropbtn {
-  background-color: rgba(255, 255, 255, 0.1);
+  background-color: #333333;
   outline: 1px solid rgba(255, 255, 255, 0.2);
 }
+.theme-logout-buttons{
+  display: flex;
+  justify-content: center;
+  margin-top: 8px;
+  margin-bottom: 8px;
+}
 .logout-button {
-  margin: 0 0 8px 120px;
   border: none;
   outline: none;
   cursor: pointer;
@@ -128,22 +132,19 @@
   border-radius: 8px;
   &:hover {
     outline: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
-    transform: translateY(-1px);
   }
 }
 .theme-button {
-  margin: 8px 0 8px 120px;
+  margin: 0;
   background-color: $bg-color-dark;
   border: none;
   outline: none;
   cursor: pointer;
   background-color: #333333;
   border-radius: 8px;
+  
   &:hover {
     outline: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 16px;
-    transform: translateY(-1px);
   }
 }
 .header-login-button {
@@ -151,8 +152,6 @@
   flex-direction: column;
   align-items: flex-end;
   float: right;
-  margin-top: 4px;
-  margin-right: 8px;
   button {
     border: none;
     outline: none;
@@ -170,7 +169,21 @@
 .mobile-menu {
   display: none;
 }
-
+.lang-buttons{
+  margin-bottom: 8px;
+  display: flex;
+  justify-content: center;
+  button{
+    border: none;
+    outline: none;
+    background-color: #333333;
+    color: white;
+    border-radius: 4px;
+    &:hover{
+      background: orange;
+    }
+  }
+}
 @media screen and (max-width: 1550px) {
   .nav {
     margin: 0 120px;
@@ -197,7 +210,7 @@
     flex-direction: column;
     align-items: flex-end;
     float: right;
-    margin-right: 4px;
+    
   }
   .menu {
     display: none;
@@ -217,33 +230,46 @@
     border-radius: 8px;
   }
   .dropdown-content {
-    top: 36px;
+    top: 22px;
+    right: 0;
   }
   .dropdown-content-mobile {
     border: 1px solid $light-placeholder-color;
     border-radius: 8px;
     display: none;
     position: absolute;
-    top: 56px;
-    right: 36px;
+    top: 48px;
+    right: 20px;
     background-color: $bg-color-dark;
     width: 100px;
     box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
     z-index: 1;
   }
-  .dropbtn {
-    div {
+  .dropbtn-categories {
+    color: white;
+    border: none;
+    div { 
       padding: 8px;
+      border: none;
       a {
         color: white;
         text-decoration: none;
       }
     }
   }
+  .dropbtn-categories-light{
+    background-color: $bg-color-dark;
+  }
+  .dropbtn-categories-dark{
+    background-color: #1b1b1b;
+  }
   .mobile-menu-tshirt {
     width: 100%;
     display: flex;
     justify-content: flex-start;
+    a{
+      float: left;
+    }
     &:hover {
       background-color: rgba(255, 255, 255, 0.1);
     }

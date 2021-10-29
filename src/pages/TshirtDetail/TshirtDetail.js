@@ -11,8 +11,10 @@ import {
 import "./TshirtDetail.scss";
 import Header from "../../components/Header/Header";
 import useTheme from "../../hooks/useTheme";
+import {useTranslation} from "react-i18next";
 
 function TshirtDetail() {
+  const {t:translate}=useTranslation();
   const { id } = useParams();
   const dispatch = useDispatch();
   const { theme } = useTheme();
@@ -77,18 +79,28 @@ function TshirtDetail() {
                   <div className="tshirt-detail-price">
                     Price: <span>{tshirtDetails.data.price} $</span>
                   </div>
-                  <button
-                    className="add-to-cart-button"
-                    onClick={() => {
-                      dispatch(postAddToCart(tshirtDetails.data));
-                    }}
-                  >
-                    Add To Cart!
-                  </button>
+                  {localStorage.getItem("access_token") ? (
+                    <button
+                      className="add-to-cart-button"
+                      onClick={() => {
+                        dispatch(postAddToCart(tshirtDetails.data));
+                      }}
+                    >
+                      {translate("detail.button")}
+                    </button>
+                  ) : (
+                    <button
+                      className="add-to-cart-button-disabled"
+                      onClick={() => {
+                        alert("You need to login to add product!");
+                      }}
+                    >
+                      {translate("detail.button")}
+                    </button>
+                  )}
                 </div>
               </div>
             )}
-            
           </>
         }
       </div>

@@ -53,7 +53,7 @@ function Hats() {
                   }`}
                 >
                   <div>{hat.title}</div>
-                  <div>{hat.price}</div>
+                  <div>{hat.price}$</div>
                 </div>
               </div>
             ))}

@@ -2,9 +2,11 @@ import React from "react";
 import useTheme from "../../hooks/useTheme";
 import "./Footer.scss";
 import { FaLinkedin,FaGithub } from "react-icons/fa";
+import {useTranslation} from "react-i18next";
 
 function Footer() {
   const { theme } = useTheme();
+  const {t:translate}=useTranslation();
   return (
     <>
       <footer
@@ -15,14 +17,14 @@ function Footer() {
         <div className="footer-upside">
           <div className="footer-menu">
             <ul>
-              <li>FAQ</li>
-              <li>Privacy</li>
-              <li>Terms & Conditions</li>
-              <li>Return Policy</li>
+              <li>{translate("footer.faq")}</li>
+              <li>{translate("footer.privacy")}</li>
+              <li>{translate("footer.terms")}</li>
+              <li>{translate("footer.return")}</li>
             </ul>
           </div>
           <div className="footer-contact">
-            <p className="contact-title">Contact Us</p>
+            <p className="contact-title">{translate("footer.contact")}</p>
             <p>info@reactbootcamp.com</p>
             <p>Istanbul, Turkey</p>
           </div>
@@ -31,7 +33,7 @@ function Footer() {
       <footer className={`footer-downside ${theme==="light"?"footer-downside-light":"footer-downside-dark"}`}>
         Created by Muratcan Payir{" "}
         <a href="https://www.linkedin.com/in/muratcanpayir/" target="_blank">
-          <FaLinkedin size={"18px"} />
+          {" "}<FaLinkedin size={"18px"} />
         </a>
         <a href="https://github.com/muratcanpayir" target="_blank">
           <FaGithub size={"18px"} />

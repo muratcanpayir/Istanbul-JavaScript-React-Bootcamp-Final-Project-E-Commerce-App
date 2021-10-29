@@ -11,8 +11,10 @@ import {
 import "./Cart.scss";
 import useCart from "../../hooks/useCart";
 import useTheme from "../../hooks/useTheme";
+import {useTranslation} from "react-i18next";
 
 function Cart() {
+  const {t:translate}=useTranslation();
   const { totalPrice, setTotalPrice } = useCart();
   const { theme } = useTheme();
   const dispatch = useDispatch();
@@ -90,7 +92,7 @@ function Cart() {
             ))}
             <div className="cart-subtotal">
               <p>
-                Subtotal: <span>{totalPrice.toFixed(2)} $</span>
+                {translate("cart.subtotal")}:  <span>{totalPrice.toFixed(2)} $</span>
               </p>
             </div>
           </div>

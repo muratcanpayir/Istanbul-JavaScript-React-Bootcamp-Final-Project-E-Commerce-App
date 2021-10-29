@@ -16,6 +16,7 @@
 }
 .footer-dark {
   border-top: 1px solid #3a3a3a;
+  background-color: $bg-color-dark;
   color: $white;
 }
 .footer-upside {
@@ -77,6 +78,25 @@
 @media screen and (max-width: 750px) {
   .footer{
     padding: 0 30px;
+  }
+  .footer-upside{
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    margin-top: 10px;
+  }
+  .footer-menu{
+    ul{
+      li{
+        font-size: 12px;
+      }
+    }
+  }
+  .footer-contact{
+    p{
+      font-size: 12px;
+    }
   }
 }
 @media screen and (max-width: 550px) {

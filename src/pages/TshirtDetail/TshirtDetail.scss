@@ -12,7 +12,7 @@
   background-color: $bg-color-dark;
 }
 .tshirt-detail {
-  margin: 20px 220px;
+  margin: 40px 220px;
   display: flex;
   border-radius: 8px;
   padding: 16px;
@@ -31,6 +31,7 @@
 .tshirt-detail-image {
   margin-right: 24px;
   img {
+    border-radius: 8px;
     height: 450px;
     width: 300px;
     object-fit: cover;
@@ -79,29 +80,48 @@
   border-radius: 8px;
   font-weight: 700;
 }
-@media screen and (max-width:1550px){
-  .tshirt-detail{
+.add-to-cart-button-disabled {
+  width: 200px;
+  background-color: rgb(190, 124, 0);
+  border: 1px solid black;
+  outline: none;
+  cursor: initial;
+  padding: 8px;
+  border-radius: 8px;
+  font-weight: 700;
+}
+@media screen and (max-width: 1550px) {
+  .tshirt-detail {
     margin: 0 120px;
   }
 }
-@media screen and (max-width:1050px){
-  .tshirt-detail{
+@media screen and (max-width: 1050px) {
+  .tshirt-detail {
     margin: 0 60px;
   }
 }
 @media screen and (max-width: 750px) {
-  .tshirt-detail{
+  .tshirt-detail {
     margin: 0 30px;
   }
 }
 @media screen and (max-width: 550px) {
-  .tshirt-detail{
+  .tshirt-detail {
     margin: 0 10px;
     flex-direction: column;
     height: auto;
     max-height: none;
   }
-  .add-to-cart-button{
+  .tshirt-detail-image {
+    margin-right: 0;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+  }
+  .add-to-cart-button {
+    width: 100%;
+  }
+  .add-to-cart-button-disabled {
     width: 100%;
   }
 }
