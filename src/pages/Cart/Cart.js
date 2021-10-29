@@ -53,15 +53,15 @@ function Cart() {
         >
           <div className="cart-wrapper">
             {cart.data.length === 0 ? (
-              <p className="cart-title">Your cart is empty.</p>
+              <p className="cart-title">{translate("cart.title-empty")}</p>
             ) : (
               <p className="cart-title">
-                CART{" "}
+                {translate("cart.title")}
                 {cart.data.length === 1 && (
-                  <span>({cart.data.length} Product)</span>
+                  <span>({cart.data.length} {translate("cart.product")})</span>
                 )}
                 {cart.data.length > 1 && (
-                  <span>({cart.data.length} Products)</span>
+                  <span>({cart.data.length} {translate("cart.products")})</span>
                 )}
               </p>
             )}
