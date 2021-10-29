@@ -14,5 +14,11 @@
     "login-email-input-placeholder": "E-Posta",
     "login-password-input-placeholder": "Şifre",
     "login-button": "GİRİŞ YAP"
+  },
+  "header":{
+    "tshirt":"Tişört",
+    "hat":"Şapka",
+    "categories":"Kategoriler",
+    "login":"Giriş Yap"
   }
 }

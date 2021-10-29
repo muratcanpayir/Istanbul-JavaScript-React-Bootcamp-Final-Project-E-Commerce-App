@@ -14,5 +14,11 @@
     "login-email-input-placeholder": "E-Mail",
     "login-password-input-placeholder": "Password",
     "login-button": "LOGIN"
+  },
+  "header":{
+    "tshirt":"T-Shirt",
+    "hat":"Hat",
+    "categories":"Categories",
+    "login":"Login"
   }
 }

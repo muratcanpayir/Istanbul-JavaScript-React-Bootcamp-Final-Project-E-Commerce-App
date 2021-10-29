@@ -51,7 +51,7 @@ function Products() {
                   }`}
                 >
                   <div>{tshirt.title}</div>
-                  <div>{tshirt.price}</div>
+                  <div>{tshirt.price}$</div>
                 </div>
               </div>
             ))}

@@ -12,8 +12,19 @@ import { IoIosLogOut } from "react-icons/io";
 import { AiOutlineUser } from "react-icons/ai";
 import { BsMoon } from "react-icons/bs";
 import { BsCart4 } from "react-icons/bs";
+import { useTranslation, withTranslation } from "react-i18next";
 
-function Header() {
+function Header({ i18n }) {
+  const { t: translate } = useTranslation();
+  const handleChangeLanguage = (lang) => {
+    i18n.changeLanguage(lang);
+  };
+  const trLang = () => {
+    handleChangeLanguage("tr");
+  };
+  const enLang = () => {
+    handleChangeLanguage("en");
+  };
   const addToCart = useSelector((state) => state.addToCart);
   const [email, setEmail] = useState("");
   const { totalPrice, setTotalPrice } = useCart();
@@ -68,19 +79,37 @@ function Header() {
             <div className="dropdown-content">
               <p>{email}</p>
               <div className="dropdown-button-wrapper">
+                <div className="theme-logout-buttons">
                 <button className="theme-button" onClick={changeTheme}>
-                  <BsMoon size={"20px"} style={{ color: "white" }} />
+                  <BsMoon size={"16px"} style={{ color: "white" }} />
                 </button>
                 <button className="logout-button" onClick={logout}>
-                  <IoIosLogOut size={"28px"} style={{ color: "white" }} />
+                  <IoIosLogOut size={"20px"} style={{ color: "white" }} />
                 </button>
+                </div>
+                <div className="lang-buttons">
+                  <button
+                    onClick={() => {
+                      trLang();
+                    }}
+                  >
+                    tr
+                  </button>
+                  <button
+                    onClick={() => {
+                      enLang();
+                    }}
+                  >
+                    en
+                  </button>
+                </div>
               </div>
             </div>
           </button>
         </div>
       ) : (
         <div className="header-login-button">
-          <button onClick={goToLogin}>Login</button>
+          <button onClick={goToLogin}>{translate("header.login")}</button>
         </div>
       )}
 
@@ -96,8 +125,8 @@ function Header() {
           E-Ticaret Sitesi
         </p>
         <div className={theme === "light" ? "menu" : "menu-dark"}>
-          <Link to="/tshirts">T-Shirt</Link>
-          <Link to="/hats">Hat</Link>
+          <Link to="/tshirts">{translate("header.tshirt")}</Link>
+          <Link to="/hats">{translate("header.hat")}</Link>
           {localStorage.getItem("access_token") && (
             <Link to="/cart">
               <BsCart4 size={"18px"} /> {totalPrice.toFixed(2)} $
@@ -105,15 +134,15 @@ function Header() {
           )}
         </div>
         <div className={`mobile-menu`}>
-          <button className="dropbtn">
-            Categories
+          <button className={`dropbtn-categories ${theme==="light"?"dropbtn-categories-light":"dropbtn-categories-dark"}`}>
+            {translate("header.categories")}
             <div className="dropdown-content-mobile">
               <div className="mobile-menu-tshirt">
                 {" "}
-                <Link to="/tshirts">T-Shirt</Link>
+                <Link to="/tshirts">{translate("header.tshirt")}</Link>
               </div>
               <div className="mobile-menu-hat">
-                <Link to="/hats">Hat</Link>
+                <Link to="/hats">{translate("header.hat")}</Link>
               </div>
               {localStorage.getItem("access_token") && (
                 <div className="mobile-menu-price">
@@ -131,4 +160,4 @@ function Header() {
   );
 }
 
-export default Header;
+export default withTranslation()(Header);
