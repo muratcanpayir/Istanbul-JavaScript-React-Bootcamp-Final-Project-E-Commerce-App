@@ -12,6 +12,7 @@ import { IoIosLogOut } from "react-icons/io";
 import { AiOutlineUser } from "react-icons/ai";
 import { BsMoon } from "react-icons/bs";
 import { BsCart4 } from "react-icons/bs";
+import { IoMdMenu } from "react-icons/io";
 import { useTranslation, withTranslation } from "react-i18next";
 
 function Header({ i18n }) {
@@ -80,12 +81,12 @@ function Header({ i18n }) {
               <p>{email}</p>
               <div className="dropdown-button-wrapper">
                 <div className="theme-logout-buttons">
-                <button className="theme-button" onClick={changeTheme}>
-                  <BsMoon size={"16px"} style={{ color: "white" }} />
-                </button>
-                <button className="logout-button" onClick={logout}>
-                  <IoIosLogOut size={"20px"} style={{ color: "white" }} />
-                </button>
+                  <button className="theme-button" onClick={changeTheme}>
+                    <BsMoon size={"16px"} style={{ color: "white" }} />
+                  </button>
+                  <button className="logout-button" onClick={logout}>
+                    <IoIosLogOut size={"20px"} style={{ color: "white" }} />
+                  </button>
                 </div>
                 <div className="lang-buttons">
                   <button
@@ -134,8 +135,15 @@ function Header({ i18n }) {
           )}
         </div>
         <div className={`mobile-menu`}>
-          <button className={`dropbtn-categories ${theme==="light"?"dropbtn-categories-light":"dropbtn-categories-dark"}`}>
-            {translate("header.categories")}
+          <button
+            className={`dropbtn-categories ${
+              theme === "light"
+                ? "dropbtn-categories-light"
+                : "dropbtn-categories-dark"
+            }`}
+          >
+            {/* {translate("header.categories")} */}
+            <IoMdMenu size={"20px"}/>
             <div className="dropdown-content-mobile">
               <div className="mobile-menu-tshirt">
                 {" "}
