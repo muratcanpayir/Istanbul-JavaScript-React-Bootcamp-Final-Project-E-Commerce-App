@@ -12,6 +12,8 @@ import "./TshirtDetail.scss";
 import Header from "../../components/Header/Header";
 import useTheme from "../../hooks/useTheme";
 import {useTranslation} from "react-i18next";
+import { ToastContainer, toast } from 'react-toastify';
+  import 'react-toastify/dist/ReactToastify.css';
 
 function TshirtDetail() {
   const {t:translate}=useTranslation();
@@ -26,10 +28,20 @@ function TshirtDetail() {
   const addToCart = useSelector((state) => state.addToCart);
   useEffect(() => {
     if (addToCart.status === REQUEST_STATUS.SUCCESS) {
-      dispatch(resetAddToCart());
-      alert("addet to cart");
+      dispatch(resetAddToCart()); 
+      toast.success("Added To Cart!", {
+        autoClose: 3000,
+        theme:"colored"
+      });
     }
   }, [addToCart]);
+  const needLogin=()=>{
+    toast.error("You need to login to add product!", {
+      autoClose: 3000,
+      theme:"colored"
+    });
+    console.log("kjahsd");
+  }
   return (
     <>
       <Header />
@@ -80,23 +92,27 @@ function TshirtDetail() {
                     Price: <span>{tshirtDetails.data.price} $</span>
                   </div>
                   {localStorage.getItem("access_token") ? (
+                    <>
                     <button
                       className="add-to-cart-button"
                       onClick={() => {
                         dispatch(postAddToCart(tshirtDetails.data));
-                      }}
+                      }}   
                     >
                       {translate("detail.button")}
                     </button>
+                    <ToastContainer />
+                    </>
                   ) : (
+                    <>
                     <button
                       className="add-to-cart-button-disabled"
-                      onClick={() => {
-                        alert("You need to login to add product!");
-                      }}
+                      onClick={needLogin}
                     >
                       {translate("detail.button")}
                     </button>
+                    <ToastContainer />
+                    </>
                   )}
                 </div>
               </div>
