@@ -23,7 +23,7 @@ function Home() {
       {tshirts.status === REQUEST_STATUS.PENDING && <div>Loading....</div>}
       {tshirts.status === REQUEST_STATUS.SUCCESS && (
         <>
-          <div className="home-banner">
+          <div className={`home-banner ${theme==="light"?"home-banner-light":"home-banner-dark"}`}>
           <img src={blackBanner} alt="banner" />
         </div>
           <div

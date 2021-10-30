@@ -75,6 +75,13 @@
     padding: 10px 30px;
     justify-content: center;
   }
+  .product-card{
+    max-width: 355px;
+    img{
+      max-width: none;
+      width: 100%;
+    }
+  }
 }
 @media screen and (max-width: 550px) {
   .product-container {
