@@ -31,10 +31,11 @@ function Footer() {
         </div>
       </footer>
       <footer className={`footer-downside ${theme==="light"?"footer-downside-light":"footer-downside-dark"}`}>
-        Created by Muratcan Payir{" "}
+        Created by Muratcan Payir&nbsp;
         <a href="https://www.linkedin.com/in/muratcanpayir/" target="_blank">
           {" "}<FaLinkedin size={"18px"} />
         </a>
+        &nbsp;
         <a href="https://github.com/muratcanpayir" target="_blank">
           <FaGithub size={"18px"} />
         </a>
