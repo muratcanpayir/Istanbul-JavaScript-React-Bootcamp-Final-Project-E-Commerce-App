@@ -11,6 +11,7 @@ import REQUEST_STATUS from "../../helpers/constants";
 import { useTranslation, withTranslation } from "react-i18next";
 
 function Signup({ i18n }) {
+  const [isSignedUp, setIsSignedUp] = useState(false);
   const { t: translate } = useTranslation();
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
@@ -32,25 +33,37 @@ function Signup({ i18n }) {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  
+
   useEffect(() => {
     dispatch(getAuth());
   }, []);
   const auth = useSelector((state) => state.auth);
- const users=useSelector(state=>state.getAuth);
- 
-  const access = () => {
+  const users = useSelector((state) => state.getAuth);
 
-    users.data.map((user)=>{
-      if(email===user.email){
-        console.log("bu email var");
-      }
-      else{
-        dispatch(postLogin(email, password));
-        dispatch(postAuth(email, password));
-      }
-    })
+  
+  const access = () => {
+    // users.data.map((user) => {
+    //   if (email === user.email) {
+    //    setIsSignedUp(true);
+    //   }
+    // });
+    // console.log(isSignedUp);
+    if (isSignedUp){
+      alert("bu email kayitli");
+    }
+    else{
+      dispatch(postLogin(email, password));
+      dispatch(postAuth(email, password));
+    }
   };
+  useEffect(()=>{
+    users.data.map((user)=>{
+      setIsSignedUp(false);
+      if (email === user.email) {
+       return setIsSignedUp(true);
+       }
+    })
+  },[email])
   useEffect(() => {
     if (token.status === REQUEST_STATUS.SUCCESS) {
       localStorage.setItem("access_token", token.data);
