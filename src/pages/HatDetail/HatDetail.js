@@ -5,15 +5,18 @@ import { useParams } from "react-router";
 import Header from "../../components/Header/Header";
 import REQUEST_STATUS from "../../helpers/constants";
 import useTheme from "../../hooks/useTheme";
-import { postAddToCart, resetAddToCart } from "../../redux/actions/addToCartAction";
+import {
+  postAddToCart,
+  resetAddToCart,
+} from "../../redux/actions/addToCartAction";
 import { getHatDetail } from "../../redux/actions/hatDetailAction";
-import {useTranslation} from "react-i18next";
-import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import { useTranslation } from "react-i18next";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 import "./HatDetail.scss";
 
 function HatDetail() {
-  const {t:translate}=useTranslation();
+  const { t: translate } = useTranslation();
   const { id } = useParams();
   const dispatch = useDispatch();
   const { theme } = useTheme();
@@ -28,16 +31,16 @@ function HatDetail() {
       dispatch(resetAddToCart());
       toast.success(translate("toastify.added"), {
         autoClose: 3000,
-        theme:"colored"
+        theme: "colored",
       });
     }
   }, [addToCart]);
-  const needLogin=()=>{
+  const needLogin = () => {
     toast.error(translate("toastify.login"), {
       autoClose: 3000,
-      theme:"colored"
+      theme: "colored",
     });
-  }
+  };
   return (
     <>
       <Header />
@@ -51,7 +54,13 @@ function HatDetail() {
         {
           <>
             {hatDetails.status === REQUEST_STATUS.PENDING && (
-              <div>Loading...</div>
+              <div class="loading">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+              </div>
             )}
             {hatDetails.status === REQUEST_STATUS.SUCCESS && (
               <div
@@ -89,25 +98,25 @@ function HatDetail() {
                   </div>
                   {localStorage.getItem("access_token") ? (
                     <>
-                    <button
-                      className="add-to-cart-button"
-                      onClick={() => {
-                        dispatch(postAddToCart(hatDetails.data));
-                      }}
-                    >
-                      {translate("detail.button")}
-                    </button>
-                    <ToastContainer />
+                      <button
+                        className="add-to-cart-button"
+                        onClick={() => {
+                          dispatch(postAddToCart(hatDetails.data));
+                        }}
+                      >
+                        {translate("detail.button")}
+                      </button>
+                      <ToastContainer />
                     </>
                   ) : (
                     <>
-                    <button
-                      className="add-to-cart-button-disabled"
-                      onClick={needLogin}
-                    >
-                      {translate("detail.button")}
-                    </button>
-                    <ToastContainer />
+                      <button
+                        className="add-to-cart-button-disabled"
+                        onClick={needLogin}
+                      >
+                        {translate("detail.button")}
+                      </button>
+                      <ToastContainer />
                     </>
                   )}
                 </div>
