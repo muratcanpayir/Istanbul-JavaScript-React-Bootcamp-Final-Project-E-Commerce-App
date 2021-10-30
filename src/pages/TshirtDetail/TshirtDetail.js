@@ -11,12 +11,12 @@ import {
 import "./TshirtDetail.scss";
 import Header from "../../components/Header/Header";
 import useTheme from "../../hooks/useTheme";
-import {useTranslation} from "react-i18next";
-import { ToastContainer, toast } from 'react-toastify';
-  import 'react-toastify/dist/ReactToastify.css';
+import { useTranslation } from "react-i18next";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function TshirtDetail() {
-  const {t:translate}=useTranslation();
+  const { t: translate } = useTranslation();
   const { id } = useParams();
   const dispatch = useDispatch();
   const { theme } = useTheme();
@@ -28,20 +28,20 @@ function TshirtDetail() {
   const addToCart = useSelector((state) => state.addToCart);
   useEffect(() => {
     if (addToCart.status === REQUEST_STATUS.SUCCESS) {
-      dispatch(resetAddToCart()); 
+      dispatch(resetAddToCart());
       toast.success(translate("toastify.added"), {
         autoClose: 3000,
-        theme:"colored"
+        theme: "colored",
       });
     }
   }, [addToCart]);
-  const needLogin=()=>{
+  const needLogin = () => {
     toast.error(translate("toastify.login"), {
       autoClose: 3000,
-      theme:"colored"
+      theme: "colored",
     });
     console.log("kjahsd");
-  }
+  };
   return (
     <>
       <Header />
@@ -93,25 +93,25 @@ function TshirtDetail() {
                   </div>
                   {localStorage.getItem("access_token") ? (
                     <>
-                    <button
-                      className="add-to-cart-button"
-                      onClick={() => {
-                        dispatch(postAddToCart(tshirtDetails.data));
-                      }}   
-                    >
-                      {translate("detail.button")}
-                    </button>
-                    <ToastContainer />
+                      <button
+                        className="add-to-cart-button"
+                        onClick={() => {
+                          dispatch(postAddToCart(tshirtDetails.data));
+                        }}
+                      >
+                        {translate("detail.button")}
+                      </button>
+                      <ToastContainer />
                     </>
                   ) : (
                     <>
-                    <button
-                      className="add-to-cart-button-disabled"
-                      onClick={needLogin}
-                    >
-                      {translate("detail.button")}
-                    </button>
-                    <ToastContainer />
+                      <button
+                        className="add-to-cart-button-disabled"
+                        onClick={needLogin}
+                      >
+                        {translate("detail.button")}
+                      </button>
+                      <ToastContainer />
                     </>
                   )}
                 </div>

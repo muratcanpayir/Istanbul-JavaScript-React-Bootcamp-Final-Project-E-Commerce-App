@@ -45,7 +45,7 @@ function Signup({ i18n }) {
       console.log("api password "+user.password);
       console.log(password);
       if(user.email===email && user.password===password){
-       return setIsLoginTrue(true);
+        setIsLoginTrue(true);
       }
     })
   },[email,password])

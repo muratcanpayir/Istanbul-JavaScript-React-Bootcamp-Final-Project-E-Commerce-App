@@ -5,10 +5,12 @@ import "./Signup.scss";
 import { useDispatch } from "react-redux";
 import { postLogin } from "../../redux/actions/loginAction";
 import { postAuth, resetAuth } from "../../redux/actions/authAction";
-import { getAuth, resetGetAuth } from "../../redux/actions/getAuthAction";
+import { getAuth } from "../../redux/actions/getAuthAction";
 import { useSelector } from "react-redux";
 import REQUEST_STATUS from "../../helpers/constants";
 import { useTranslation, withTranslation } from "react-i18next";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Signup({ i18n }) {
   const [isSignedUp, setIsSignedUp] = useState(false);
@@ -47,20 +49,28 @@ function Signup({ i18n }) {
     //    setIsSignedUp(true);
     //   }
     // });
-    // console.log(isSignedUp);
+    console.log(isSignedUp);
     if (isSignedUp){
-      alert("bu email kayitli");
+      toast.error("bu email zaten var", {
+        autoClose: 3000,
+        theme: "colored",
+      });
     }
     else{
+      toast.success("basariyla kaydoldunuz", {
+        autoClose: 3000,
+        theme: "colored",
+      });
       dispatch(postLogin(email, password));
       dispatch(postAuth(email, password));
     }
   };
   useEffect(()=>{
+    setIsSignedUp(false);
     users.data.map((user)=>{
-      setIsSignedUp(false);
+      console.log(user.email);
       if (email === user.email) {
-       return setIsSignedUp(true);
+        return setIsSignedUp(true);
        }
     })
   },[email])
@@ -73,7 +83,7 @@ function Signup({ i18n }) {
   useEffect(() => {
     if (auth.status === REQUEST_STATUS.SUCCESS) {
       dispatch(resetAuth());
-      window.location.href = "/";
+      // window.location.href = "/";
     }
   }, [auth]);
   return (
@@ -162,6 +172,7 @@ function Signup({ i18n }) {
           >
             en
           </button>
+          <ToastContainer />
         </div>
       </div>
     </div>
