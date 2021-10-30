@@ -32,11 +32,11 @@ function Footer() {
       </footer>
       <footer className={`footer-downside ${theme==="light"?"footer-downside-light":"footer-downside-dark"}`}>
         Created by Muratcan Payir&nbsp;
-        <a href="https://www.linkedin.com/in/muratcanpayir/" target="_blank">
+        <a href="https://www.linkedin.com/in/muratcanpayir/" target="_blank" rel="noopener noreferrer">
           {" "}<FaLinkedin size={"18px"} />
         </a>
         &nbsp;
-        <a href="https://github.com/muratcanpayir" target="_blank">
+        <a href="https://github.com/muratcanpayir" target="_blank" rel="noopener noreferrer">
           <FaGithub size={"18px"} />
         </a>
       </footer>
