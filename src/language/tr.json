@@ -6,8 +6,8 @@
     "signup-email-input-placeholder": "E-Posta",
     "signup-password-input-placeholder": "Şifre",
     "signup-button": "KAYIT OL",
-    "toastify-error":"Bu E-Posta zaten kullanılıyor!",
-    "toastify-success":"Başarıyla kayıt oldunuz, Hoşgeldiniz!"
+    "toastify-error": "Bu E-Posta zaten kullanılıyor!",
+    "toastify-success": "Başarıyla kayıt oldunuz, Hoşgeldiniz!"
   },
   "login": {
     "login-title": "Giriş Yap",
@@ -16,8 +16,8 @@
     "login-email-input-placeholder": "E-Posta",
     "login-password-input-placeholder": "Şifre",
     "login-button": "GİRİŞ YAP",
-    "toastify-success":"Başarıyla giriş yaptınız, Hoşgeldiniz!",
-    "toastify-error":"E-Posta veya Parola yanlış!"
+    "toastify-success": "Başarıyla giriş yaptınız, Hoşgeldiniz!",
+    "toastify-error": "E-Posta veya Parola yanlış!"
   },
   "header": {
     "tshirt": "Tişört",
@@ -32,18 +32,18 @@
     "return": "İade Politikası",
     "contact": "Bize Ulaşın"
   },
-  "detail":{
-    "button":"Sepete Ekle!"
+  "detail": {
+    "button": "Sepete Ekle!"
   },
-  "cart":{
-    "subtotal":"Toplam",
-    "title-empty":"Sepetiniz boş.",
-    "title":"Sepet",
-    "product":"Ürün",
-    "products":"Ürün"
+  "cart": {
+    "subtotal": "Toplam",
+    "title-empty": "Sepetiniz boş.",
+    "title": "Sepet",
+    "product": "Ürün",
+    "products": "Ürün"
   },
-  "toastify":{
-    "added":"Sepete Eklendi!",
-    "login":"Ürün eklemek için giriş yapmalısınız!"
+  "toastify": {
+    "added": "Sepete Eklendi!",
+    "login": "Ürün eklemek için giriş yapmalısınız!"
   }
 }

@@ -42,30 +42,25 @@ function Signup({ i18n }) {
   useEffect(() => {
     setIsLoginTrue(false);
     users.data.map((user) => {
-      console.log("api email " + user.email);
-      console.log(email);
-      console.log("api password " + user.password);
-      console.log(password);
       if (user.email === email && user.password === password) {
-       return setIsLoginTrue(true);
+        return setIsLoginTrue(true);
       }
     });
   }, [email, password]);
   const access = () => {
     if (isLoginTrue) {
       toast.success(translate("login.toastify-success"), {
-        hideProgressBar:true,
+        hideProgressBar: true,
         autoClose: 3000,
         theme: "colored",
       });
-      setTimeout(()=>{
+      setTimeout(() => {
         dispatch(postLogin(email, password));
-      window.location.href = "/";
-      },2000);
-      
+        window.location.href = "/";
+      }, 2000);
     } else {
       toast.error(translate("login.toastify-error"), {
-        hideProgressBar:true,
+        hideProgressBar: true,
         autoClose: 3000,
         theme: "colored",
       });

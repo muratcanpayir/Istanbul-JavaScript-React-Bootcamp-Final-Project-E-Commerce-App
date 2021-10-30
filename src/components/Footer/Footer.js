@@ -1,12 +1,12 @@
 import React from "react";
 import useTheme from "../../hooks/useTheme";
 import "./Footer.scss";
-import { FaLinkedin,FaGithub } from "react-icons/fa";
-import {useTranslation} from "react-i18next";
+import { FaLinkedin, FaGithub } from "react-icons/fa";
+import { useTranslation } from "react-i18next";
 
 function Footer() {
   const { theme } = useTheme();
-  const {t:translate}=useTranslation();
+  const { t: translate } = useTranslation();
   return (
     <>
       <footer
@@ -30,13 +30,26 @@ function Footer() {
           </div>
         </div>
       </footer>
-      <footer className={`footer-downside ${theme==="light"?"footer-downside-light":"footer-downside-dark"}`}>
+      <footer
+        className={`footer-downside ${
+          theme === "light" ? "footer-downside-light" : "footer-downside-dark"
+        }`}
+      >
         Created by Muratcan Payir&nbsp;
-        <a href="https://www.linkedin.com/in/muratcanpayir/" target="_blank" rel="noopener noreferrer">
-          {" "}<FaLinkedin size={"18px"} />
+        <a
+          href="https://www.linkedin.com/in/muratcanpayir/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          {" "}
+          <FaLinkedin size={"18px"} />
         </a>
         &nbsp;
-        <a href="https://github.com/muratcanpayir" target="_blank" rel="noopener noreferrer">
+        <a
+          href="https://github.com/muratcanpayir"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
           <FaGithub size={"18px"} />
         </a>
       </footer>

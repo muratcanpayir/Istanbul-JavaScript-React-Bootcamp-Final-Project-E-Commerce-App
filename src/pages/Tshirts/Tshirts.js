@@ -16,7 +16,6 @@ function Products() {
     dispatch(getTshirts());
   }, [dispatch]);
   const tshirts = useSelector((state) => state.tshirts);
-  console.log(tshirts);
   return (
     <>
       <Header />

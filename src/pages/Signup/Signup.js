@@ -42,43 +42,33 @@ function Signup({ i18n }) {
   const auth = useSelector((state) => state.auth);
   const users = useSelector((state) => state.getAuth);
 
-  
   const access = () => {
-    // users.data.map((user) => {
-    //   if (email === user.email) {
-    //    setIsSignedUp(true);
-    //   }
-    // });
-    console.log(isSignedUp);
-    if (isSignedUp){
+    if (isSignedUp) {
       toast.error(translate("signup.toastify-error"), {
-        hideProgressBar:true,
+        hideProgressBar: true,
         autoClose: 3000,
         theme: "colored",
       });
-    }
-    else{
+    } else {
       toast.success(translate("signup.toastify-success"), {
-        hideProgressBar:true,
+        hideProgressBar: true,
         autoClose: 3000,
         theme: "colored",
       });
-      setTimeout(()=>{
+      setTimeout(() => {
         dispatch(postLogin(email, password));
         dispatch(postAuth(email, password));
-      },2000)
-      
+      }, 2000);
     }
   };
-  useEffect(()=>{
+  useEffect(() => {
     setIsSignedUp(false);
-    users.data.map((user)=>{
-      console.log(user.email);
+    users.data.map((user) => {
       if (email === user.email) {
         return setIsSignedUp(true);
-       }
-    })
-  },[email])
+      }
+    });
+  }, [email]);
   useEffect(() => {
     if (token.status === REQUEST_STATUS.SUCCESS) {
       localStorage.setItem("access_token", token.data);

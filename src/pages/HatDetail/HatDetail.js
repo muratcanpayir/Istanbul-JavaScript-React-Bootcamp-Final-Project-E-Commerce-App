@@ -24,7 +24,6 @@ function HatDetail() {
     dispatch(getHatDetail(id));
   }, []);
   const hatDetails = useSelector((state) => state.hatDetail);
-  console.log(hatDetails);
   const addToCart = useSelector((state) => state.addToCart);
   useEffect(() => {
     if (addToCart.status === REQUEST_STATUS.SUCCESS) {

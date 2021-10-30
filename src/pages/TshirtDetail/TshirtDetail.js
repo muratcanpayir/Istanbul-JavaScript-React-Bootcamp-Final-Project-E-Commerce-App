@@ -40,7 +40,6 @@ function TshirtDetail() {
       autoClose: 3000,
       theme: "colored",
     });
-    console.log("kjahsd");
   };
   return (
     <>

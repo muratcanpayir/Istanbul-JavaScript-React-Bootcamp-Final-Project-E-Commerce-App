@@ -1,10 +1,5 @@
 import React, { useEffect, useState } from "react";
-import {
-  BrowserRouter as Router,
-  Switch,
-  Route,
-  Redirect,
-} from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Hats from "../pages/Hats/Hats";
 import Signup from "../pages/Signup/Signup";
 import Tshirts from "../pages/Tshirts/Tshirts";
@@ -14,7 +9,7 @@ import HatDetail from "../pages/HatDetail/HatDetail";
 import Cart from "../pages/Cart/Cart";
 import Home from "../pages/Home/Home";
 
-function Routes({trLang,enLang}) {
+function Routes({ trLang, enLang }) {
   const [totalPrice, setTotalPrice] = useState(0);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
   useEffect(() => {
