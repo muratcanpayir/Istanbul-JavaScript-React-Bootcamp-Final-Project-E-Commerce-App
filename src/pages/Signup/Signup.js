@@ -4,11 +4,16 @@ import { useForm } from "react-hook-form";
 import "./Signup.scss";
 import { useDispatch } from "react-redux";
 import { postLogin } from "../../redux/actions/loginAction";
+import { postAuth, resetAuth } from "../../redux/actions/authAction";
+import { getAuth } from "../../redux/actions/getAuthAction";
 import { useSelector } from "react-redux";
 import REQUEST_STATUS from "../../helpers/constants";
 import { useTranslation, withTranslation } from "react-i18next";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Signup({ i18n }) {
+  const [isSignedUp, setIsSignedUp] = useState(false);
   const { t: translate } = useTranslation();
   const dispatch = useDispatch();
   const [email, setEmail] = useState("");
@@ -30,16 +35,62 @@ function Signup({ i18n }) {
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  useEffect(() => {
+    dispatch(getAuth());
+  }, []);
+  const auth = useSelector((state) => state.auth);
+  const users = useSelector((state) => state.getAuth);
+
+  
   const access = () => {
-    dispatch(postLogin(email, password));
+    // users.data.map((user) => {
+    //   if (email === user.email) {
+    //    setIsSignedUp(true);
+    //   }
+    // });
+    console.log(isSignedUp);
+    if (isSignedUp){
+      toast.error(translate("signup.toastify-error"), {
+        hideProgressBar:true,
+        autoClose: 3000,
+        theme: "colored",
+      });
+    }
+    else{
+      toast.success(translate("signup.toastify-success"), {
+        hideProgressBar:true,
+        autoClose: 3000,
+        theme: "colored",
+      });
+      setTimeout(()=>{
+        dispatch(postLogin(email, password));
+        dispatch(postAuth(email, password));
+      },2000)
+      
+    }
   };
+  useEffect(()=>{
+    setIsSignedUp(false);
+    users.data.map((user)=>{
+      console.log(user.email);
+      if (email === user.email) {
+        return setIsSignedUp(true);
+       }
+    })
+  },[email])
   useEffect(() => {
     if (token.status === REQUEST_STATUS.SUCCESS) {
       localStorage.setItem("access_token", token.data);
       localStorage.setItem("email", email);
-      window.location.href = "/";
     }
   }, [token]);
+  useEffect(() => {
+    if (auth.status === REQUEST_STATUS.SUCCESS) {
+      dispatch(resetAuth());
+      window.location.href = "/";
+    }
+  }, [auth]);
   return (
     <div
       className={`signup-container ${
@@ -106,8 +157,27 @@ function Signup({ i18n }) {
           </button>
         </form>
         <div className="signup-lang-buttons">
-          <button onClick={trLang} className={`signup-lang-buttons-tr ${theme==="light"?"signup-lang-buttons-tr-light":"signup-lang-buttons-tr-dark"}`}>tr</button>
-          <button onClick={enLang} className={`signup-lang-buttons-en ${theme==="light"?"signup-lang-buttons-en-light":"signup-lang-buttons-en-dark"}`}>en</button>
+          <button
+            onClick={trLang}
+            className={`signup-lang-buttons-tr ${
+              theme === "light"
+                ? "signup-lang-buttons-tr-light"
+                : "signup-lang-buttons-tr-dark"
+            }`}
+          >
+            tr
+          </button>
+          <button
+            onClick={enLang}
+            className={`signup-lang-buttons-en ${
+              theme === "light"
+                ? "signup-lang-buttons-en-light"
+                : "signup-lang-buttons-en-dark"
+            }`}
+          >
+            en
+          </button>
+          <ToastContainer />
         </div>
       </div>
     </div>
