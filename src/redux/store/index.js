@@ -10,6 +10,7 @@ import { addToCartReducer } from "../reducers/addToCartReducer";
 import { deleteFromCartReducer } from "../reducers/deleteFromCartReducer";
 import { loginReducer } from "../reducers/loginReducer";
 import { authReducer } from "../reducers/authReducer";
+import {getAuthReducer} from "../reducers/getAuthReducer";
 
 const reducers = combineReducers({
   tshirts: tshirtReducer,
@@ -21,6 +22,7 @@ const reducers = combineReducers({
   deleteFromCart: deleteFromCartReducer,
   login: loginReducer,
   auth: authReducer,
+  getAuth:getAuthReducer,
 });
 
 export const store = createStore(

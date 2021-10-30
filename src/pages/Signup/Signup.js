@@ -4,6 +4,8 @@ import { useForm } from "react-hook-form";
 import "./Signup.scss";
 import { useDispatch } from "react-redux";
 import { postLogin } from "../../redux/actions/loginAction";
+import { postAuth, resetAuth } from "../../redux/actions/authAction";
+import { getAuth, resetGetAuth } from "../../redux/actions/getAuthAction";
 import { useSelector } from "react-redux";
 import REQUEST_STATUS from "../../helpers/constants";
 import { useTranslation, withTranslation } from "react-i18next";
@@ -30,16 +32,37 @@ function Signup({ i18n }) {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  
+  useEffect(() => {
+    dispatch(getAuth());
+  }, []);
+  const auth = useSelector((state) => state.auth);
+ const users=useSelector(state=>state.getAuth);
+ 
   const access = () => {
-    dispatch(postLogin(email, password));
+
+    users.data.map((user)=>{
+      if(email===user.email){
+        console.log("bu email var");
+      }
+      else{
+        dispatch(postLogin(email, password));
+        dispatch(postAuth(email, password));
+      }
+    })
   };
   useEffect(() => {
     if (token.status === REQUEST_STATUS.SUCCESS) {
       localStorage.setItem("access_token", token.data);
       localStorage.setItem("email", email);
-      window.location.href = "/";
     }
   }, [token]);
+  useEffect(() => {
+    if (auth.status === REQUEST_STATUS.SUCCESS) {
+      dispatch(resetAuth());
+      window.location.href = "/";
+    }
+  }, [auth]);
   return (
     <div
       className={`signup-container ${
@@ -106,8 +129,26 @@ function Signup({ i18n }) {
           </button>
         </form>
         <div className="signup-lang-buttons">
-          <button onClick={trLang} className={`signup-lang-buttons-tr ${theme==="light"?"signup-lang-buttons-tr-light":"signup-lang-buttons-tr-dark"}`}>tr</button>
-          <button onClick={enLang} className={`signup-lang-buttons-en ${theme==="light"?"signup-lang-buttons-en-light":"signup-lang-buttons-en-dark"}`}>en</button>
+          <button
+            onClick={trLang}
+            className={`signup-lang-buttons-tr ${
+              theme === "light"
+                ? "signup-lang-buttons-tr-light"
+                : "signup-lang-buttons-tr-dark"
+            }`}
+          >
+            tr
+          </button>
+          <button
+            onClick={enLang}
+            className={`signup-lang-buttons-en ${
+              theme === "light"
+                ? "signup-lang-buttons-en-light"
+                : "signup-lang-buttons-en-dark"
+            }`}
+          >
+            en
+          </button>
         </div>
       </div>
     </div>
