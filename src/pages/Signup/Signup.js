@@ -51,13 +51,15 @@ function Signup({ i18n }) {
     // });
     console.log(isSignedUp);
     if (isSignedUp){
-      toast.error("bu email zaten var", {
+      toast.error(translate("signup.toastify-error"), {
+        hideProgressBar:true,
         autoClose: 3000,
         theme: "colored",
       });
     }
     else{
-      toast.success("basariyla kaydoldunuz", {
+      toast.success(translate("signup.toastify-success"), {
+        hideProgressBar:true,
         autoClose: 3000,
         theme: "colored",
       });

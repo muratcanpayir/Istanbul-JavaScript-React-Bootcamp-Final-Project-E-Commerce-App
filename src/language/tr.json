@@ -5,7 +5,9 @@
     "signup-desc-link": "Giriş Yap!",
     "signup-email-input-placeholder": "E-Posta",
     "signup-password-input-placeholder": "Şifre",
-    "signup-button": "KAYIT OL"
+    "signup-button": "KAYIT OL",
+    "toastify-error":"Bu E-Posta zaten kullanılıyor.",
+    "toastify-success":"Başarıyla kayıt oldunuz."
   },
   "login": {
     "login-title": "Giriş Yap",

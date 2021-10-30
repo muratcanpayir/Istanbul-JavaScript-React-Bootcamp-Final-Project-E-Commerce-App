@@ -5,7 +5,9 @@
     "signup-desc-link": "Login Here!",
     "signup-email-input-placeholder": "E-Mail",
     "signup-password-input-placeholder": "Password",
-    "signup-button": "SIGN UP"
+    "signup-button": "SIGN UP",
+    "toastify-error":"E-Mail has already been taken.",
+    "toastify-success":"You have successfully signed up, Welcome!"
   },
   "login": {
     "login-title": "Login",

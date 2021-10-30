@@ -65,6 +65,7 @@ function Signup({ i18n }) {
       
     } else {
       toast.error("email veya sifreniz yanlis", {
+        hideProgressBar:true,
         autoClose: 3000,
         theme: "colored",
       });
