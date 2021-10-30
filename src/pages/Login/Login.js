@@ -53,7 +53,7 @@ function Signup({ i18n }) {
   }, [email, password]);
   const access = () => {
     if (isLoginTrue) {
-      toast.success("basariyla giris yaptiniz", {
+      toast.success(translate("login.toastify-success"), {
         hideProgressBar:true,
         autoClose: 3000,
         theme: "colored",
@@ -64,7 +64,7 @@ function Signup({ i18n }) {
       },2000);
       
     } else {
-      toast.error("email veya sifreniz yanlis", {
+      toast.error(translate("login.toastify-error"), {
         hideProgressBar:true,
         autoClose: 3000,
         theme: "colored",

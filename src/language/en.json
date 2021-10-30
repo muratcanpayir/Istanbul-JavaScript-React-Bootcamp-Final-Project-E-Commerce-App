@@ -15,7 +15,9 @@
     "login-desc-link": "Sign Up Here!",
     "login-email-input-placeholder": "E-Mail",
     "login-password-input-placeholder": "Password",
-    "login-button": "LOGIN"
+    "login-button": "LOGIN",
+    "toastify-success":"You have successfully logged in, Welcome!",
+    "toastify-error":"E-Mail or Password is incorrect!"
   },
   "header":{
     "tshirt":"T-Shirt",
