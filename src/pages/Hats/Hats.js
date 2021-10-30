@@ -21,7 +21,15 @@ function Hats() {
   return (
     <>
       <Header />
-      {hats.status === REQUEST_STATUS.PENDING && <div>Loading...</div>}
+      {hats.status === REQUEST_STATUS.PENDING && (
+        <div class="loading">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      )}
       {hats.status === REQUEST_STATUS.SUCCESS && (
         <>
           <div

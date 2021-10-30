@@ -55,7 +55,13 @@ function TshirtDetail() {
         {
           <>
             {tshirtDetails.status === REQUEST_STATUS.PENDING && (
-              <div>Loading...</div>
+              <div class="loading">
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+                <div class="dot"></div>
+              </div>
             )}
             {tshirtDetails.status === REQUEST_STATUS.SUCCESS && (
               <div

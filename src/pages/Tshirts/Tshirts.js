@@ -20,7 +20,15 @@ function Products() {
   return (
     <>
       <Header />
-      {tshirts.status === REQUEST_STATUS.PENDING && <div>Loading....</div>}
+      {tshirts.status === REQUEST_STATUS.PENDING && (
+        <div class="loading">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      )}
       {tshirts.status === REQUEST_STATUS.SUCCESS && (
         <>
           <div

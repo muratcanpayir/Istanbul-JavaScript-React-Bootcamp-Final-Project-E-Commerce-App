@@ -44,7 +44,15 @@ function Cart() {
   return (
     <>
       <Header />
-      {cart.status === REQUEST_STATUS.PENDING && <div>Loading....</div>}
+      {cart.status === REQUEST_STATUS.PENDING && (
+        <div class="loading">
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+          <div class="dot"></div>
+        </div>
+      )}
       {cart.status === REQUEST_STATUS.SUCCESS && (
         <div
           className={`cart-container ${
@@ -58,10 +66,14 @@ function Cart() {
               <p className="cart-title">
                 {translate("cart.title")}
                 {cart.data.length === 1 && (
-                  <span>({cart.data.length} {translate("cart.product")})</span>
+                  <span>
+                    ({cart.data.length} {translate("cart.product")})
+                  </span>
                 )}
                 {cart.data.length > 1 && (
-                  <span>({cart.data.length} {translate("cart.products")})</span>
+                  <span>
+                    ({cart.data.length} {translate("cart.products")})
+                  </span>
                 )}
               </p>
             )}
