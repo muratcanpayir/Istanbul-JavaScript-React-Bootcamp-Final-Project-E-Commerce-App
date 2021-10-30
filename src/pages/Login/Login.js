@@ -8,6 +8,7 @@ import { useForm } from "react-hook-form";
 import "../Signup/Signup.scss";
 import "./Login.scss";
 import { useTranslation, withTranslation } from "react-i18next";
+import { getAuth } from "../../redux/actions/getAuthAction";
 
 function Signup({ i18n }) {
   const { t: translate } = useTranslation();
@@ -15,8 +16,13 @@ function Signup({ i18n }) {
   const [password, setPassword] = useState("");
   const history = useHistory();
   const theme = localStorage.getItem("theme");
+  const [isLoginTrue,setIsLoginTrue]=useState(false);
   const dispatch = useDispatch();
   const token = useSelector((state) => state.login);
+  useEffect(()=>{
+    dispatch(getAuth());
+  },[])
+  const users=useSelector(state=>state.getAuth);
   const handleChangeLanguage = (lang) => {
     i18n.changeLanguage(lang);
   };
@@ -31,14 +37,33 @@ function Signup({ i18n }) {
     handleSubmit,
     formState: { errors },
   } = useForm();
+  useEffect(()=>{
+    users.data.map((user)=>{
+      setIsLoginTrue(false);
+      console.log("api email "+user.email);
+      console.log(email)
+      console.log("api password "+user.password);
+      console.log(password);
+      if(user.email===email && user.password===password){
+       return setIsLoginTrue(true);
+      }
+    })
+  },[email,password])
   const access = () => {
-    dispatch(postLogin(email, password));
+    if(isLoginTrue){
+      dispatch(postLogin(email, password));
+      window.location.href="/";
+    }
+    else{
+      alert("email veya sifre yanlis");
+    }
+    
   };
   useEffect(() => {
     if (token.status === REQUEST_STATUS.SUCCESS) {
       localStorage.setItem("access_token", token.data);
       localStorage.setItem("email", email);
-      window.location.href = "/";
+      // window.location.href = "/";
     }
   }, [token]);
   return (
