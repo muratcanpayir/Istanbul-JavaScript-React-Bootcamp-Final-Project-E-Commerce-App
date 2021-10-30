@@ -32,6 +32,14 @@
     "button":"Add To Cart!"
   },
   "cart":{
-    "subtotal":"Subtotal"
+    "subtotal":"Subtotal",
+    "title-empty":"Your cart is empty.",
+    "title":"Cart",
+    "product":"Product",
+    "products":"Products"
+  },
+  "toastify":{
+    "added":"Added To Cart Succesfully!",
+    "login":"You Need to Login to Add Product!"
   }
 }

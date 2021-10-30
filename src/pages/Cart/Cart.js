@@ -11,10 +11,10 @@ import {
 import "./Cart.scss";
 import useCart from "../../hooks/useCart";
 import useTheme from "../../hooks/useTheme";
-import {useTranslation} from "react-i18next";
+import { useTranslation } from "react-i18next";
 
 function Cart() {
-  const {t:translate}=useTranslation();
+  const { t: translate } = useTranslation();
   const { totalPrice, setTotalPrice } = useCart();
   const { theme } = useTheme();
   const dispatch = useDispatch();
@@ -52,6 +52,19 @@ function Cart() {
           }`}
         >
           <div className="cart-wrapper">
+            {cart.data.length === 0 ? (
+              <p className="cart-title">{translate("cart.title-empty")}</p>
+            ) : (
+              <p className="cart-title">
+                {translate("cart.title")}
+                {cart.data.length === 1 && (
+                  <span>({cart.data.length} {translate("cart.product")})</span>
+                )}
+                {cart.data.length > 1 && (
+                  <span>({cart.data.length} {translate("cart.products")})</span>
+                )}
+              </p>
+            )}
             {cart.data.map((item) => (
               <div
                 className={`cart-items ${
@@ -92,7 +105,8 @@ function Cart() {
             ))}
             <div className="cart-subtotal">
               <p>
-                {translate("cart.subtotal")}:  <span>{totalPrice.toFixed(2)} $</span>
+                {translate("cart.subtotal")}:{" "}
+                <span>{totalPrice.toFixed(2)} $</span>
               </p>
             </div>
           </div>

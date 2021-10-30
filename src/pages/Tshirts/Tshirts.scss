@@ -3,7 +3,7 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: space-between;
-  padding: 20px 220px;  
+  padding: 20px 220px;
   gap: 8px;
 }
 .product-container-light {
@@ -21,24 +21,24 @@
   max-width: 320px;
   margin-bottom: 20px;
   cursor: pointer;
-  &:hover {
-    transform: translateY(-2px);
+  &:active {
+    transform: translate(1px,3px);
   }
 }
 .product-card-light {
   background-color: rgb(228, 227, 227);
   border: 1px solid $light-box-shadow;
   box-shadow: 0 5px 5px rgb(98, 98, 98);
-  &:hover {
-    box-shadow: 7px 7px 2px rgb(98, 98, 98);
+  &:active{
+    box-shadow: 0 2px 2px rgb(98, 98, 98);
   }
 }
 .product-card-dark {
   background-color: rgb(66, 66, 66);
   border: 1px solid rgb(47, 47, 47);
   box-shadow: 0 5px 5px rgb(20, 20, 20);
-  &:hover {
-    box-shadow: 7px 7px 5px rgb(20, 20, 20);
+  &:active{
+    box-shadow: 0 2px 2px rgb(20, 20, 20);
   }
 }
 .image {
@@ -60,24 +60,31 @@
 .product-info-dark {
   color: $white;
 }
-@media screen and (max-width:1550px){
-  .product-container{
+@media screen and (max-width: 1550px) {
+  .product-container {
     padding: 20px 120px;
   }
 }
-@media screen and (max-width:1050px){
-  .product-container{
+@media screen and (max-width: 1050px) {
+  .product-container {
     padding: 10px 60px;
   }
 }
-@media screen and (max-width:750px){
-  .product-container{
+@media screen and (max-width: 750px) {
+  .product-container {
     padding: 10px 30px;
     justify-content: center;
   }
+  .product-card{
+    max-width: 355px;
+    img{
+      max-width: none;
+      width: 100%;
+    }
+  }
 }
-@media screen and (max-width:550px){
-  .product-container{
+@media screen and (max-width: 550px) {
+  .product-container {
     padding: 10px 10px;
     justify-content: center;
   }

@@ -102,6 +102,18 @@
     }
   }
 }
+.cart-title{
+  color: $text-color-1;
+  font-size: 24px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  margin-bottom: 10px;
+  span{
+    font-size: 24px;
+    font-weight: 400;
+  }
+}
 @media screen and (max-width: 1550px) {
   .cart-wrapper {
     margin: 20px 120px;
@@ -117,6 +129,7 @@
     margin: 10px 30px;
   }
 }
+
 @media screen and (max-width: 550px) {
   .cart-wrapper {
     margin: 10px 10px;
@@ -143,6 +156,12 @@
       span {
         font-size: 16px;
       }
+    }
+  }
+  .cart-title{
+    font-size: 18px;
+    span{
+      font-size: 18px;
     }
   }
 }

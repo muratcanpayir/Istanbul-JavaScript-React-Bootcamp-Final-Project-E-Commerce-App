@@ -32,6 +32,14 @@
     "button":"Sepete Ekle!"
   },
   "cart":{
-    "subtotal":"Toplam"
+    "subtotal":"Toplam",
+    "title-empty":"Sepetiniz boş.",
+    "title":"Sepet",
+    "product":"Ürün",
+    "products":"Ürün"
+  },
+  "toastify":{
+    "added":"Sepete Eklendi!",
+    "login":"Ürün eklemek için giriş yapmalısınız!"
   }
 }

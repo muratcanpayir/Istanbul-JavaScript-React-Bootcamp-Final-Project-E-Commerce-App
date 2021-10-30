@@ -7,6 +7,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { getTshirts } from "../../redux/actions/tshirtAction";
 import REQUEST_STATUS from "../../helpers/constants";
 import { useHistory } from "react-router-dom";
+import blackBanner from "../../images/black-banner.jpg"
 
 function Home() {
   const { theme } = useTheme();
@@ -22,6 +23,9 @@ function Home() {
       {tshirts.status === REQUEST_STATUS.PENDING && <div>Loading....</div>}
       {tshirts.status === REQUEST_STATUS.SUCCESS && (
         <>
+          <div className={`home-banner ${theme==="light"?"home-banner-light":"home-banner-dark"}`}>
+          <img src={blackBanner} alt="banner" />
+        </div>
           <div
             className={`product-container ${
               theme === "light"
@@ -29,6 +33,7 @@ function Home() {
                 : "product-container-dark"
             }`}
           >
+            
             {tshirts.data.map((tshirt) => (
               <div
                 className={`product-card ${
