@@ -61,8 +61,11 @@ function Signup({ i18n }) {
         autoClose: 3000,
         theme: "colored",
       });
-      dispatch(postLogin(email, password));
-      dispatch(postAuth(email, password));
+      setTimeout(()=>{
+        dispatch(postLogin(email, password));
+        dispatch(postAuth(email, password));
+      },2000)
+      
     }
   };
   useEffect(()=>{
@@ -83,7 +86,7 @@ function Signup({ i18n }) {
   useEffect(() => {
     if (auth.status === REQUEST_STATUS.SUCCESS) {
       dispatch(resetAuth());
-      // window.location.href = "/";
+      window.location.href = "/";
     }
   }, [auth]);
   return (

@@ -9,6 +9,8 @@ import "../Signup/Signup.scss";
 import "./Login.scss";
 import { useTranslation, withTranslation } from "react-i18next";
 import { getAuth } from "../../redux/actions/getAuthAction";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 function Signup({ i18n }) {
   const { t: translate } = useTranslation();
@@ -16,13 +18,13 @@ function Signup({ i18n }) {
   const [password, setPassword] = useState("");
   const history = useHistory();
   const theme = localStorage.getItem("theme");
-  const [isLoginTrue,setIsLoginTrue]=useState(false);
+  const [isLoginTrue, setIsLoginTrue] = useState(false);
   const dispatch = useDispatch();
   const token = useSelector((state) => state.login);
-  useEffect(()=>{
+  useEffect(() => {
     dispatch(getAuth());
-  },[])
-  const users=useSelector(state=>state.getAuth);
+  }, []);
+  const users = useSelector((state) => state.getAuth);
   const handleChangeLanguage = (lang) => {
     i18n.changeLanguage(lang);
   };
@@ -37,27 +39,36 @@ function Signup({ i18n }) {
     handleSubmit,
     formState: { errors },
   } = useForm();
-  useEffect(()=>{
-    users.data.map((user)=>{
-      setIsLoginTrue(false);
-      console.log("api email "+user.email);
-      console.log(email)
-      console.log("api password "+user.password);
+  useEffect(() => {
+    setIsLoginTrue(false);
+    users.data.map((user) => {
+      console.log("api email " + user.email);
+      console.log(email);
+      console.log("api password " + user.password);
       console.log(password);
-      if(user.email===email && user.password===password){
-        setIsLoginTrue(true);
+      if (user.email === email && user.password === password) {
+       return setIsLoginTrue(true);
       }
-    })
-  },[email,password])
+    });
+  }, [email, password]);
   const access = () => {
-    if(isLoginTrue){
-      dispatch(postLogin(email, password));
-      window.location.href="/";
+    if (isLoginTrue) {
+      toast.success("basariyla giris yaptiniz", {
+        hideProgressBar:true,
+        autoClose: 3000,
+        theme: "colored",
+      });
+      setTimeout(()=>{
+        dispatch(postLogin(email, password));
+      window.location.href = "/";
+      },2000);
+      
+    } else {
+      toast.error("email veya sifreniz yanlis", {
+        autoClose: 3000,
+        theme: "colored",
+      });
     }
-    else{
-      alert("email veya sifre yanlis");
-    }
-    
   };
   useEffect(() => {
     if (token.status === REQUEST_STATUS.SUCCESS) {
@@ -132,8 +143,27 @@ function Signup({ i18n }) {
           </button>
         </form>
         <div className="signup-lang-buttons">
-          <button onClick={trLang} className={`signup-lang-buttons-tr ${theme==="light"?"signup-lang-buttons-tr-light":"signup-lang-buttons-tr-dark"}`}>tr</button>
-          <button onClick={enLang} className={`signup-lang-buttons-en ${theme==="light"?"signup-lang-buttons-en-light":"signup-lang-buttons-en-dark"}`}>en</button>
+          <button
+            onClick={trLang}
+            className={`signup-lang-buttons-tr ${
+              theme === "light"
+                ? "signup-lang-buttons-tr-light"
+                : "signup-lang-buttons-tr-dark"
+            }`}
+          >
+            tr
+          </button>
+          <button
+            onClick={enLang}
+            className={`signup-lang-buttons-en ${
+              theme === "light"
+                ? "signup-lang-buttons-en-light"
+                : "signup-lang-buttons-en-dark"
+            }`}
+          >
+            en
+          </button>
+          <ToastContainer />
         </div>
       </div>
     </div>
