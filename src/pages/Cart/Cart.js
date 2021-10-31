@@ -45,12 +45,12 @@ function Cart() {
     <>
       <Header />
       {cart.status === REQUEST_STATUS.PENDING && (
-        <div class="loading">
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
-          <div class="dot"></div>
+        <div className="loading">
+          <div className="dot"></div>
+          <div className="dot"></div>
+          <div className="dot"></div>
+          <div className="dot"></div>
+          <div className="dot"></div>
         </div>
       )}
       {cart.status === REQUEST_STATUS.SUCCESS && (
