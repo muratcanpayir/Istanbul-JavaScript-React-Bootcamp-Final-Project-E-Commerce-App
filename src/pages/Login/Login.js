@@ -21,10 +21,14 @@ function Signup({ i18n }) {
   const [isLoginTrue, setIsLoginTrue] = useState(false);
   const dispatch = useDispatch();
   const token = useSelector((state) => state.login);
+
+  //get auth function works when component did mount.
+  // it gets all the users email and passwords who signed up.
   useEffect(() => {
     dispatch(getAuth());
   }, []);
   const users = useSelector((state) => state.getAuth);
+
   const handleChangeLanguage = (lang) => {
     i18n.changeLanguage(lang);
   };
@@ -34,11 +38,16 @@ function Signup({ i18n }) {
   const enLang = () => {
     handleChangeLanguage("en");
   };
+
+  //react hook form for validations
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
+
+  //when email or password change, it maps all the user mail and passwords for authorization
+  //it checks for email or password matches on api
   useEffect(() => {
     setIsLoginTrue(false);
     users.data.map((user) => {
@@ -66,6 +75,8 @@ function Signup({ i18n }) {
       });
     }
   };
+
+  //when you login succesfully it gives you access token. And then i write to localstorage
   useEffect(() => {
     if (token.status === REQUEST_STATUS.SUCCESS) {
       localStorage.setItem("access_token", token.data);
@@ -74,6 +85,7 @@ function Signup({ i18n }) {
     }
   }, [token]);
   return (
+    // login form
     <div
       className={`signup-container ${
         theme === "light" ? "signup-container-light" : "signup-container-dark"
@@ -108,6 +120,7 @@ function Signup({ i18n }) {
               {translate("login.login-desc-link")}
             </span>
           </p>
+          {/* email input i checked for error and made form validations */}
           <input
             className={`input-light ${
               theme === "light" ? "input-light-light" : "input-light-dark"
@@ -120,6 +133,7 @@ function Signup({ i18n }) {
             })}
             onChange={(e) => setEmail(e.target.value)}
           />
+          {/* password input */}
           <input
             className={`input-light ${
               theme === "light" ? "input-light-light" : "input-light-dark"
