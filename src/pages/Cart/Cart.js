@@ -4,10 +4,7 @@ import Header from "../../components/Header/Header";
 import REQUEST_STATUS from "../../helpers/constants";
 import { getCart } from "../../redux/actions/cartAction";
 import { RiDeleteBinLine } from "react-icons/ri";
-import {
-  deleteFromCart,
-  resetDeleteOffer,
-} from "../../redux/actions/deleteFromCartAction";
+import { deleteFromCart } from "../../redux/actions/deleteFromCartAction";
 import "./Cart.scss";
 import useCart from "../../hooks/useCart";
 import useTheme from "../../hooks/useTheme";
@@ -23,6 +20,8 @@ function Cart() {
   useEffect(() => {
     dispatch(getCart());
   }, []);
+
+  //Total Price calculation
   useEffect(() => {
     if (cart.status === REQUEST_STATUS.SUCCESS) {
       setTotalPrice(0);
@@ -31,9 +30,13 @@ function Cart() {
       });
     }
   }, [cart]);
+
+  //Delete Product function
   const deleteProductFromCart = (id) => {
     dispatch(deleteFromCart(id));
   };
+
+  //This section for rendering products when delete any product.
   const deleteState = useSelector((state) => state.deleteFromCart);
   useEffect(() => {
     if (deleteState.status === REQUEST_STATUS.SUCCESS) {
@@ -44,6 +47,7 @@ function Cart() {
   return (
     <>
       <Header />
+      {/* Loading section */}
       {cart.status === REQUEST_STATUS.PENDING && (
         <div className="loading">
           <div className="dot"></div>
@@ -53,6 +57,11 @@ function Cart() {
           <div className="dot"></div>
         </div>
       )}
+      {/*
+        Cart container
+        It gets cart from redux and maps it to write all products.
+        With Delete button function
+      */}
       {cart.status === REQUEST_STATUS.SUCCESS && (
         <div
           className={`cart-container ${

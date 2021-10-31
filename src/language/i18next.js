@@ -1,9 +1,5 @@
 import i18n from "i18next";
 import { initReactI18next } from "react-i18next";
-
-// t('welcome')
-// t('input.placeholders.email')
-
 import enLang from "./en.json";
 import trLang from "./tr.json";
 
