@@ -1,8 +1,13 @@
+# JavaScript & React Bootcamp Final Project
 <h1>Istanbul JavaScript & React Bootcamp Final Project React E-Commerce Website</h1>
 It's an E-Commerce App made with React and Redux. All Api's made with Mock Api. It allows create account, if you already have an account you can login, add to cart on product detail pages, delete from cart, change theme, change languages and logout. 
-For Live Demo, [Click Here](https://kodluyoruz-react-bootcamp-final-project.netlify.app/)
 <br>
-<h3>Used Technologies</h3>
+<br>
+
+For Live Demo [Click!](https://kodluyoruz-react-bootcamp-final-project.netlify.app/)
+
+
+<h2>Used Technologies</h2>
   <ul>
     <li>React</li>
     <li>Redux</li>
@@ -18,7 +23,6 @@ For Live Demo, [Click Here](https://kodluyoruz-react-bootcamp-final-project.netl
     <li>i18Next</li>
     <li>Deployed by Netlify</li>
   </ul>
-<h3>Installation</h3>
 <h2>Installation</h2>
 In the project directory, you can run:
 
