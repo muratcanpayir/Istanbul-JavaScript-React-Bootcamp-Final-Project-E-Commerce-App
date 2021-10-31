@@ -9,9 +9,11 @@ import HatDetail from "../pages/HatDetail/HatDetail";
 import Cart from "../pages/Cart/Cart";
 import Home from "../pages/Home/Home";
 
-function Routes({ trLang, enLang }) {
+function Routes() {
   const [totalPrice, setTotalPrice] = useState(0);
   const [isLoggedIn, setIsLoggedIn] = useState(false);
+
+  //if access token exist isLoggedIn true
   useEffect(() => {
     if (localStorage.getItem("access_token")) {
       setIsLoggedIn(true);
@@ -19,7 +21,7 @@ function Routes({ trLang, enLang }) {
   }, []);
   return (
     <Router>
-      {/* <Redirect to="/products" /> */}
+      {/* if isLoggedIn true, you can only go to this pages */}
       {isLoggedIn ? (
         <Switch>
           <Route path="/cart">
@@ -42,6 +44,7 @@ function Routes({ trLang, enLang }) {
           </Route>
         </Switch>
       ) : (
+        // if isLoggedIn false, you can only go to this pages
         <Switch>
           <Route path="/signup">
             <Signup />

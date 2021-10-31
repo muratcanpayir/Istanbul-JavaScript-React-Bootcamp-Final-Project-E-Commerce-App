@@ -20,6 +20,8 @@ function TshirtDetail() {
   const { id } = useParams();
   const dispatch = useDispatch();
   const { theme } = useTheme();
+
+  //get tshirt details
   useEffect(() => {
     dispatch(getTshirtDetail(id));
   }, []);
@@ -28,6 +30,7 @@ function TshirtDetail() {
   const addToCart = useSelector((state) => state.addToCart);
   useEffect(() => {
     if (addToCart.status === REQUEST_STATUS.SUCCESS) {
+      //this reset function for stop toast working permanently
       dispatch(resetAddToCart());
       toast.success(translate("toastify.added"), {
         autoClose: 3000,
@@ -53,6 +56,7 @@ function TshirtDetail() {
       >
         {
           <>
+            {/* loading section */}
             {tshirtDetails.status === REQUEST_STATUS.PENDING && (
               <div className="loading">
                 <div className="dot"></div>
@@ -96,8 +100,13 @@ function TshirtDetail() {
                   <div className="tshirt-detail-price">
                     Price: <span>{tshirtDetails.data.price} $</span>
                   </div>
+                  {/*
+                    logged in check. if you logged in it'll show add to cart button
+                    if you are not it'll show disabled add to cart button, when you click it toast function needLogin works
+                   */}
                   {localStorage.getItem("access_token") ? (
                     <>
+                      {/* add to cart button */}
                       <button
                         className="add-to-cart-button"
                         onClick={() => {

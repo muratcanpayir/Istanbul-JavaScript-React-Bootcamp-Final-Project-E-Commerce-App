@@ -14,6 +14,8 @@ function Hats() {
   const history = useHistory();
   const dispatch = useDispatch();
   const { theme } = useTheme();
+
+  //get hats
   useEffect(() => {
     dispatch(getHats());
   }, [dispatch]);
@@ -21,6 +23,7 @@ function Hats() {
   return (
     <>
       <Header />
+      {/* loading section */}
       {hats.status === REQUEST_STATUS.PENDING && (
         <div className="loading">
           <div className="dot"></div>
@@ -30,6 +33,7 @@ function Hats() {
           <div className="dot"></div>
         </div>
       )}
+      {/* this section get hats and map them. you can click on item to go to detail page */}
       {hats.status === REQUEST_STATUS.SUCCESS && (
         <>
           <div

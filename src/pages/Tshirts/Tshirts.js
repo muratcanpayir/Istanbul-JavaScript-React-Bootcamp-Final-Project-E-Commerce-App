@@ -12,6 +12,8 @@ function Products() {
   const dispatch = useDispatch();
   const history = useHistory();
   const { theme } = useTheme();
+
+  //get tshirts
   useEffect(() => {
     dispatch(getTshirts());
   }, [dispatch]);
@@ -19,6 +21,7 @@ function Products() {
   return (
     <>
       <Header />
+      {/* loading section */}
       {tshirts.status === REQUEST_STATUS.PENDING && (
         <div className="loading">
           <div className="dot"></div>
@@ -28,6 +31,7 @@ function Products() {
           <div className="dot"></div>
         </div>
       )}
+      {/* this section get tshirts and map them. you can click on item to go to detail page */}
       {tshirts.status === REQUEST_STATUS.SUCCESS && (
         <>
           <div

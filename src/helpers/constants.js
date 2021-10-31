@@ -1,5 +1,5 @@
+//it's used for reducer status
 const REQUEST_STATUS = {
-  NOT_DEFINED: "NOT_DEFINED",
   PENDING: "PENDING",
   SUCCESS: "SUCCESS",
   ERROR: "ERROR",

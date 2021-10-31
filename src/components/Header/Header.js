@@ -16,6 +16,7 @@ import { IoMdMenu } from "react-icons/io";
 import { useTranslation, withTranslation } from "react-i18next";
 
 function Header({ i18n }) {
+  // get i18n for language changing buttons
   const { t: translate } = useTranslation();
   const handleChangeLanguage = (lang) => {
     i18n.changeLanguage(lang);
@@ -32,6 +33,7 @@ function Header({ i18n }) {
   const { theme, setTheme } = useTheme();
   const history = useHistory();
   const dispatch = useDispatch();
+  // dispatched get Cart actions for cart price
   useEffect(() => {
     dispatch(getCart());
   }, []);
@@ -47,14 +49,17 @@ function Header({ i18n }) {
       });
     }
   }, [cart]);
+  // get email from local storage for add to user button on header
   useEffect(() => {
     setEmail(localStorage.getItem("email"));
   }, []);
+  // logout function
   const logout = () => {
     localStorage.removeItem("access_token");
     localStorage.removeItem("email");
     window.location.href = "/";
   };
+  // change theme function
   const changeTheme = () => {
     if (theme === "light") {
       setTheme("dark");
@@ -64,10 +69,14 @@ function Header({ i18n }) {
       localStorage.setItem("theme", "light");
     }
   };
+  //login button function
   const goToLogin = () => {
     window.location.href = "/login";
   };
   return (
+    // header divs are created for both desktop and mobile
+    // div classNames changes with the theme.
+    // added icons for buttons and links
     <header
       className={`header ${theme === "light" ? "header-light" : "header-dark"}`}
     >
@@ -142,8 +151,7 @@ function Header({ i18n }) {
                 : "dropbtn-categories-dark"
             }`}
           >
-            {/* {translate("header.categories")} */}
-            <IoMdMenu size={"20px"}/>
+            <IoMdMenu size={"20px"} />
             <div className="dropdown-content-mobile">
               <div className="mobile-menu-tshirt">
                 {" "}

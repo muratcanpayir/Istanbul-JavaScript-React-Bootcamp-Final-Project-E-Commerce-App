@@ -13,6 +13,8 @@ function Home() {
   const { theme } = useTheme();
   const history = useHistory();
   const dispatch = useDispatch();
+
+  //get tshirts
   useEffect(() => {
     dispatch(getTshirts());
   }, [dispatch]);
@@ -20,6 +22,7 @@ function Home() {
   return (
     <>
       <Header />
+      {/* Loading section */}
       {tshirts.status === REQUEST_STATUS.PENDING && (
         <div className="loading">
           <div className="dot"></div>
@@ -29,6 +32,7 @@ function Home() {
           <div className="dot"></div>
         </div>
       )}
+      {/* get tshirts and map them. you can click to go to tshirt details page */}
       {tshirts.status === REQUEST_STATUS.SUCCESS && (
         <>
           <div
