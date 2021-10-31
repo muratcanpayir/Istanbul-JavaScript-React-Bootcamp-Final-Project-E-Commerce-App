@@ -38,7 +38,7 @@ function Signup({ i18n }) {
 
   useEffect(() => {
     dispatch(getAuth());
-  }, []);
+  }, [dispatch]);
   const auth = useSelector((state) => state.auth);
   const users = useSelector((state) => state.getAuth);
 
@@ -74,20 +74,20 @@ function Signup({ i18n }) {
         return setIsSignedUp(true);
       }
     });
-  }, [email]);
+  }, [email,users.data]);
   useEffect(() => {
     if (token.status === REQUEST_STATUS.SUCCESS) {
       localStorage.setItem("access_token", token.data);
       localStorage.setItem("email", email);
     }
-  }, [token]);
+  }, [token,email]);
 
   useEffect(() => {
     if (auth.status === REQUEST_STATUS.SUCCESS) {
       dispatch(resetAuth());
       window.location.href = "/";
     }
-  }, [auth]);
+  }, [auth,dispatch]);
   return (
     <div
       className={`signup-container ${

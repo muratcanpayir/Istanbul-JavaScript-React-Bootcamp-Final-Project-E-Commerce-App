@@ -36,10 +36,10 @@ function Header({ i18n }) {
   // dispatched get Cart actions for cart price
   useEffect(() => {
     dispatch(getCart());
-  }, []);
+  },[dispatch]);
   useEffect(() => {
     dispatch(getCart());
-  }, [addToCart]);
+  }, [addToCart,dispatch]);
   const cart = useSelector((state) => state.cart);
   useEffect(() => {
     if (cart.status === REQUEST_STATUS.SUCCESS) {
@@ -48,7 +48,7 @@ function Header({ i18n }) {
         setTotalPrice((prev) => prev + Number(item.price));
       });
     }
-  }, [cart]);
+  }, [cart,setTotalPrice]);
   // get email from local storage for add to user button on header
   useEffect(() => {
     setEmail(localStorage.getItem("email"));

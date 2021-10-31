@@ -26,7 +26,7 @@ function Signup({ i18n }) {
   // it gets all the users email and passwords who signed up.
   useEffect(() => {
     dispatch(getAuth());
-  }, []);
+  }, [dispatch]);
   const users = useSelector((state) => state.getAuth);
 
   const handleChangeLanguage = (lang) => {
@@ -55,7 +55,7 @@ function Signup({ i18n }) {
         return setIsLoginTrue(true);
       }
     });
-  }, [email, password]);
+  }, [email, password,users.data]);
   const access = () => {
     if (isLoginTrue) {
       toast.success(translate("login.toastify-success"), {
@@ -83,7 +83,7 @@ function Signup({ i18n }) {
       localStorage.setItem("email", email);
       // window.location.href = "/";
     }
-  }, [token]);
+  }, [token,email]);
   return (
     // login form
     <div
