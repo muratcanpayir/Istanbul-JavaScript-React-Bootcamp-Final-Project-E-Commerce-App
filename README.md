@@ -46,4 +46,18 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 <h2>Screenshots</h2>
 
+![image](https://user-images.githubusercontent.com/83983761/139577700-105b7332-c770-4f27-8765-6f2de8d3aa28.png)
+![image](https://user-images.githubusercontent.com/83983761/139577734-c6759b65-3e10-4164-a5c5-46cdbcefe5f4.png)
+![image](https://user-images.githubusercontent.com/83983761/139577762-45d20a76-043b-4318-823d-4f14fcd03bda.png)
+![image](https://user-images.githubusercontent.com/83983761/139577788-7bed4be0-4c48-4e7b-8a21-317626e788c9.png)
+![image](https://user-images.githubusercontent.com/83983761/139577812-3a3a1dfe-e567-43d7-a1c8-a23cb183ca7d.png)
+![image](https://user-images.githubusercontent.com/83983761/139577827-f497f5ff-31f9-4e12-b52d-7471dc572efe.png)
+![image](https://user-images.githubusercontent.com/83983761/139577865-470739f5-ed54-49e3-ac2e-6d3e8c358dd8.png)
+![image](https://user-images.githubusercontent.com/83983761/139577888-0f9cc78d-aa6e-4812-b704-03c3d75dd621.png)
+![image](https://user-images.githubusercontent.com/83983761/139577915-70cb8116-fd24-44d6-bbd0-d6880c76a4a3.png)
+
+
+
+
+
 
