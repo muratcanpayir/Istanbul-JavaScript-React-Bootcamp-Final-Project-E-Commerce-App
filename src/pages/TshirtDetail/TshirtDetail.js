@@ -24,7 +24,7 @@ function TshirtDetail() {
   //get tshirt details
   useEffect(() => {
     dispatch(getTshirtDetail(id));
-  }, []);
+  }, [dispatch,id]);
 
   const tshirtDetails = useSelector((state) => state.tshirtDetail);
   const addToCart = useSelector((state) => state.addToCart);
@@ -37,7 +37,7 @@ function TshirtDetail() {
         theme: "colored",
       });
     }
-  }, [addToCart]);
+  }, [addToCart,dispatch,translate]);
   const needLogin = () => {
     toast.error(translate("toastify.login"), {
       autoClose: 3000,

@@ -24,7 +24,7 @@ function HatDetail() {
   //get hat details
   useEffect(() => {
     dispatch(getHatDetail(id));
-  }, []);
+  }, [dispatch,id]);
   const hatDetails = useSelector((state) => state.hatDetail);
   const addToCart = useSelector((state) => state.addToCart);
   useEffect(() => {
@@ -36,7 +36,7 @@ function HatDetail() {
         theme: "colored",
       });
     }
-  }, [addToCart]);
+  }, [addToCart,dispatch,translate]);
   const needLogin = () => {
     toast.error(translate("toastify.login"), {
       autoClose: 3000,

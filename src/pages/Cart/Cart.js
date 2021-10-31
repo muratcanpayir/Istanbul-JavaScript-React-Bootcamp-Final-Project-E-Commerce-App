@@ -19,7 +19,7 @@ function Cart() {
 
   useEffect(() => {
     dispatch(getCart());
-  }, []);
+  }, [dispatch]);
 
   //Total Price calculation
   useEffect(() => {
@@ -29,7 +29,7 @@ function Cart() {
         setTotalPrice((prev) => prev + Number(item.price));
       });
     }
-  }, [cart]);
+  }, [cart,setTotalPrice]);
 
   //Delete Product function
   const deleteProductFromCart = (id) => {
@@ -42,7 +42,7 @@ function Cart() {
     if (deleteState.status === REQUEST_STATUS.SUCCESS) {
       dispatch(getCart());
     }
-  }, [deleteState]);
+  }, [deleteState,dispatch]);
 
   return (
     <>
