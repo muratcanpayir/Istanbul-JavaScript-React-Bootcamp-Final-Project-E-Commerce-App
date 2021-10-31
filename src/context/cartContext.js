@@ -1,5 +1,6 @@
 import { createContext, useState } from "react";
 
+//cart context created for use cart total price on header
 export const CartContext = createContext();
 
 export const CartProvider = ({ children }) => {
