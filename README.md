@@ -1,8 +1,7 @@
 # Istanbul JavaScript & React Bootcamp Final Project React E-Commerce App
 It's an E-Commerce App made with React and Redux. All Api's made with Mock Api. It allows create account, if you already have an account you can login, add to cart on product detail pages, delete from cart, change theme, change languages and logout. 
 
-<br>
-<br>
+
 
 For Live Demo [Click!](https://kodluyoruz-react-bootcamp-final-project.netlify.app/)
 
