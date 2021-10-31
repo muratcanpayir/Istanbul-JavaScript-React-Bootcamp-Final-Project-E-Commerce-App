@@ -42,6 +42,10 @@ function Signup({ i18n }) {
   const auth = useSelector((state) => state.auth);
   const users = useSelector((state) => state.getAuth);
 
+  //its on submit function
+  //if isSignedUp state true which means you can sign up correctly because your email doesn't match on api list.
+  //it shows toast and then it works post login and post auth functions.
+  //postAuth is write email and password to api.
   const access = () => {
     if (isSignedUp) {
       toast.error(translate("signup.toastify-error"), {
@@ -61,6 +65,8 @@ function Signup({ i18n }) {
       }, 2000);
     }
   };
+
+  //if emails are equal to api it returns isSignedUp state true.
   useEffect(() => {
     setIsSignedUp(false);
     users.data.map((user) => {
@@ -75,6 +81,7 @@ function Signup({ i18n }) {
       localStorage.setItem("email", email);
     }
   }, [token]);
+
   useEffect(() => {
     if (auth.status === REQUEST_STATUS.SUCCESS) {
       dispatch(resetAuth());
