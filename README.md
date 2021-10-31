@@ -43,6 +43,12 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+<h2>Known Issues</h2>
+<ul>
+<li>On signup and login page, submit button doesn't work with enter.</li>
+<li>If you click buttons in series fast, Mock Api would give you 429 Too many request error.</li>
+</ul>
+
 <h2>Screenshots</h2>
 
 ![image](https://user-images.githubusercontent.com/83983761/139577700-105b7332-c770-4f27-8765-6f2de8d3aa28.png)
