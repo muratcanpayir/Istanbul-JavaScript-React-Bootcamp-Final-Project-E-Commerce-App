@@ -59,8 +59,10 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 <h2>Performance</h2>
 
 <h3>Desktop</h3>
+
 ![image](https://user-images.githubusercontent.com/83983761/139578093-ac8c510b-adf0-4829-a3f6-6ff558cb7707.png)
 <h3>Mobile</h3>
+
 ![image](https://user-images.githubusercontent.com/83983761/139578114-a01a40d9-c7f0-4968-9bae-1dc47f12fde0.png)
 
 
