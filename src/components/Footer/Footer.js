@@ -9,6 +9,7 @@ function Footer() {
   const { t: translate } = useTranslation();
   return (
     <>
+    {/* Created fake data footer */}
       <footer
         className={`footer ${
           theme === "light" ? "footer-light" : "footer-dark"
