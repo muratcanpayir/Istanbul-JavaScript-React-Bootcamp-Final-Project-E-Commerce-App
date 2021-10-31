@@ -1,3 +1,4 @@
+//the api before i work on Mock API
 // const getHats=[
 //   {
 //     "title": "Topa Cap",
